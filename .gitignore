@@ -1,0 +1,14 @@
+out
+dist
+node_modules
+.vscode-test/
+*.vsix
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache

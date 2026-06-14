@@ -1,0 +1,54 @@
+{
+  "name": "pascal",
+  "displayName": "Pascal",
+  "description": "A modern dark theme for many editors, shells, and more!",
+  "version": "0.0.1",
+  "type": "module",
+  "categories": [
+    "Themes"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pascal.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run build",
+    "package": "vsce package",
+    "build": "pnpm run prebuild && tsdown",
+    "prebuild": "pnpm run lint && pnpm run typecheck",
+    "typecheck": "tsc -b",
+    "lint": "biome lint . && eslint --cache --concurrency=auto .",
+    "format": "pnpm run format:code && pnpm run format:imports",
+    "format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --cache",
+    "format:imports": "biome check --formatter-enabled=false --write",
+    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.88.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "^0.27.3",
+    "eslint": "^10.4.0",
+    "eslint-plugin-regexp": "^3.1.0",
+    "prettier": "^3.8.3",
+    "tsdown": "^0.22.2",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "vscode": "^1.88.0"
+  },
+  "packageManager": "pnpm@11.6.0"
+}
