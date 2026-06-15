@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Changelog PR or Release
+    if: ${{ github.repository_owner == 'hadez8877' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: setup PNPM
+        uses: ./.github/actions/setup-pnpm
+
+      - name: Setup Node
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.16.0
+
+      - name: Setup git commiter
+        id: commiter
+        uses: ./.github/actions/setup-git-commiter
+        with:
+          pascal-client-id: ${{ vars.PASCAL_CLIENT_ID }}
+          pascal-app-secret: ${{ secrets.PASCAL_APP_SECRET }}
+
+      - name: Create Release Pull Request
+        id: changesets
+        uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
+        with:
+          # Note: pnpm install after versioning is necessary to refresh lockfile
+          version: pnpm run version
+          commit: '[ci] release'
+          title: '[ci] release'
+        env:
+          # Needs access to push to main
+          GITHUB_TOKEN: ${{ steps.commiter.outputs.token }}
+          # Use OIDC for npm authentication instead of NPM_TOKEN
+          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
+
+      - name: Publish to OpenVSX
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        run: pnpm dlx ovsx publish --no-dependencies -p ${{ secrets.OVSX_TOKEN }}
+          
