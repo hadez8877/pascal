@@ -1,27 +1,37 @@
 {
   "name": "pascal",
   "displayName": "Pascal",
+  "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
   "version": "0.0.1",
   "type": "module",
+  "main": "./dist/extension.js",
   "categories": [
     "Themes"
   ],
+  "icon": "./assets/icon.png",
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
-  "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "themes": [
       {
-        "command": "pascal.helloWorld",
-        "title": "Hello World"
+        "label": "Pascal (Default)",
+        "uiTheme": "vs-dark",
+        "path": "./themes/pascal-default.json"
       }
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadez8877/pascal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hadez8877/pascal/issues"
+  },
   "scripts": {
     "vscode:prepublish": "pnpm run build",
-    "package": "vsce package",
+    "package": "vsce package --no-dependencies",
     "build": "pnpm run prebuild && tsdown",
     "prebuild": "pnpm run lint && pnpm run typecheck",
     "typecheck": "tsc -b",
@@ -46,6 +56,7 @@
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.56.1"
   },
+  "license": "MIT",
   "engines": {
     "node": ">=22.12.0",
     "vscode": "^1.88.0"
