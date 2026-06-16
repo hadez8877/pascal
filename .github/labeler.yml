@@ -1,0 +1,17 @@
+'actions':
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/**
+'extension: assets':
+  - changed-files:
+      - any-glob-to-any-file:
+          - assets/**
+'extension: docs':
+  - changed-files:
+      - any-glob-to-any-file:
+          - **/*.md
+'extension: open-vsx':
+  - changed-files:
+      - any-glob-to-any-file:
+        - package.json
+        - src/**/*.ts
