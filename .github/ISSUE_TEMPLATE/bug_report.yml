@@ -4,6 +4,15 @@ description: Report an issue with the extension or possible visual bug.
 labels: ['bug']
 
 body:
+  - type: dropdown
+    id: extension-support
+    attributes:
+      label: Which extension support is this bug report for?
+      options:
+        - open-vsx
+      validations:
+        required: true
+
   - type: input
     id: location
     attributes:
