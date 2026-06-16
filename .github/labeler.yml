@@ -9,7 +9,7 @@
 'extension: docs':
   - changed-files:
       - any-glob-to-any-file:
-          - **/*.md
+          - '**/*.md'
 'extension: open-vsx':
   - changed-files:
       - any-glob-to-any-file:
