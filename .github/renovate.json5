@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:weekly",
+    ":disablePeerDependencies",
+    "regexManagers:biomeVersions",
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "postUpdateOptions": ["pnpmDedupe"],
+  "toolSettings": {
+    "nodeMaxMemory": 3072
+  },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "ignorePaths": ["**/node_modules/**"],
+  "packageRules": [
+    //#region Infra groups
+    {
+      "groupName": "lockfile maintenance",
+      "matchUpdateTypes": ["lockFileMaintenance"]
+    },
+    {
+      "groupName": "github-actions",
+      "matchManagers": ["github-actions"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    //#endregion
+  ],
+  "ignoreDeps": [
+    // manually bumping deps
+    "@biomejs/biome",
+    "@types/node",
+    "@types/vscode",
+
+    // manually bumping workflow actions
+    "actions/labeler"
+  ],
+  "minimumReleaseAge": "3 days"
+}
