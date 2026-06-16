@@ -1,17 +1,32 @@
+# IDE and test files
 .vscode/**
 .vscode-test/**
+
+# Source files
 src/**
+**/*.ts
+
+# Configuration files
 .gitignore
 .yarnrc
-vsc-extension-quickstart.md
 **/tsconfig.json
 **/eslint.config.js
 **/biome.jsonc
 **/prettier.config.mjs
+.eslintcache
+.prettierignore
+
+# Build artifacts
 **/*.map
-**/*.ts
-.changeset/**
+
+# Documentation
+vsc-extension-quickstart.md
+
+# Version control and CI
 .github/**
-pnpm-lock.yaml
+.changeset/**
+
+# Dependencies
 node_modules/**
+pnpm-lock.yaml
 
