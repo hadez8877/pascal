@@ -18,9 +18,22 @@
       {
         "label": "Pascal (Default)",
         "uiTheme": "vs-dark",
-        "path": "./themes/pascal-default.json"
+        "path": "./themes/default.json"
       }
     ]
+  },
+  "configuration": {
+    "title": "Pascal",
+    "properties": {
+      "pascal.editorTheme": {
+        "type": "string",
+        "default": "Pascal (Default)",
+        "markdownDescription": "%description.pascal.editorTheme%",
+        "enum": [
+          "Pascal (Default)"
+        ]
+      }
+    }
   },
   "repository": {
     "type": "git",
