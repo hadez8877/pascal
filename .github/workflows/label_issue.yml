@@ -1,4 +1,4 @@
-name: Issue Labeler
+name: Label Issue
 
 on:
   issues:
@@ -6,7 +6,7 @@ on:
       - opened
 
 jobs:
-  issue-triage:
+  triage:
     runs-on: ubuntu-latest
 
     steps:
