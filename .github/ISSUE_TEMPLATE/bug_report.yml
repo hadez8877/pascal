@@ -1,7 +1,7 @@
 name: "Bug Report"
 description: Report an issue with the extension or possible visual bug.
 
-labels: ['bug']
+labels: ['kind: bug']
 
 body:
   - type: dropdown
