@@ -1,5 +1,6 @@
 import type { Disposable, WebviewPanel } from 'vscode';
-import { ViewColumn, window } from 'vscode';
+import { Uri, ViewColumn, window } from 'vscode';
+import { resolvePath } from '../utils/resolvePath.js';
 
 type WebviewControllerOptions = {
 	id: string;
@@ -50,6 +51,8 @@ export function WebviewController({ id, title, content }: WebviewControllerOptio
 				enableScripts: true,
 				retainContextWhenHidden: true
 			});
+
+			panel.iconPath = Uri.file(resolvePath('../assets/icon.svg'));
 
 			panel.onDidDispose(() => {
 				panel = undefined;
