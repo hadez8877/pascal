@@ -1,8 +1,8 @@
 import { TextDecoder } from 'node:util';
 import { marked } from 'marked';
 import { Uri, workspace } from 'vscode';
-import { WebviewController } from './WebviewController.js';
 import { resolvePath } from '../utils/resolvePath.js';
+import { WebviewController } from './WebviewController.js';
 
 export const ChangelogWebview = WebviewController({
 	id: 'pascal.Changelog',
