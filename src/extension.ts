@@ -1,8 +1,4 @@
-import { commands } from 'vscode';
-import { ChangelogWebview } from './webviews/ChangelogWebview.js';
-
-export function activate() {
-	commands.registerCommand('pascal.showChangelog', async () => {
-		await ChangelogWebview.show();
-	});
-}
+export const activate = async () => {
+	// vsce not support PNPM. For now, I can't create a webview
+	// Please fix them as quickly as possible: https://github.com/microsoft/vscode-vsce/issues/421
+};
