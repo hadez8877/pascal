@@ -4,7 +4,7 @@
 
 # Source files
 src/**
-**/*.ts
+scripts/**
 
 # Configuration files
 .gitignore

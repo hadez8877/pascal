@@ -6,6 +6,7 @@
   "version": "0.0.1",
   "type": "module",
   "main": "./dist/extension.js",
+  "browser": "./dist/browser.js",
   "categories": [
     "Themes"
   ],
@@ -50,10 +51,7 @@
     "url": "https://github.com/hadez8877/pascal/issues"
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run build",
-    "package": "vsce package --no-dependencies",
-    "build": "pnpm run prebuild && tsdown",
-    "prebuild": "pnpm run lint && pnpm run typecheck",
+    "build": "node scripts/build.js",
     "typecheck": "tsc -b",
     "lint": "biome lint . && eslint --cache --concurrency=auto .",
     "format": "pnpm run format:code && pnpm run format:imports",
@@ -68,9 +66,12 @@
     "@types/node": "^24.10.1",
     "@types/vscode": "^1.88.0",
     "@vscode/vsce": "^3.9.2",
+    "esbuild": "0.27.3",
     "eslint": "^10.4.0",
     "eslint-plugin-regexp": "^3.1.0",
+    "piccolore": "0.1.3",
     "prettier": "^3.8.3",
+    "tinyglobby": "0.2.16",
     "tsdown": "^0.22.2",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.56.1"
