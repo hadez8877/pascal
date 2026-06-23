@@ -3,7 +3,7 @@
   "displayName": "Pascal",
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "type": "module",
   "main": "./dist/extension.js",
   "browser": "./dist/browser.js",
@@ -75,9 +75,6 @@
     "tsdown": "^0.22.2",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.56.1"
-  },
-  "dependencies": {
-    "marked": "^18.0.5"
   },
   "license": "MIT",
   "engines": {

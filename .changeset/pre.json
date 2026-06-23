@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "pascal": "0.0.1"
+  },
+  "changesets": [
+    "six-olives-laugh"
+  ]
+}
