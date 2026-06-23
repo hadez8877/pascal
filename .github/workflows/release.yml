@@ -45,5 +45,5 @@ jobs:
           NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
 
       - name: Publish to OpenVSX
-        if: steps.changesets.outputs.hasChangesets == 'true'
+        if: steps.changesets.outputs.hasChangesets == 'false'
         run: pnpm dlx ovsx publish --no-dependencies -p ${{ secrets.OVSX_TOKEN }}
