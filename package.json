@@ -57,6 +57,7 @@
     "format": "pnpm run format:code && pnpm run format:imports",
     "format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --cache",
     "format:imports": "biome check --formatter-enabled=false --write",
+    "publish": "pnpm run build && pnpm dlx ovsx publish --no-dependencies",
     "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format"
   },
   "devDependencies": {
