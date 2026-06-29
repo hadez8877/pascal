@@ -33,17 +33,35 @@ jobs:
           pascal-client-id: ${{ vars.PASCAL_CLIENT_ID }}
           pascal-app-secret: ${{ secrets.PASCAL_APP_SECRET }}
 
-      - name: Create Release Pull Request
+      - name: Build extension
+        run: pnpm run build
+
+      - name: Create Release Pull Request or Publish
         id: changesets
         uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b # v1.8.0
         with:
           # Note: pnpm install after versioning is necessary to refresh lockfile
           version: pnpm run version
+          publish: pnpm exec changeset publish
           commit: '[ci] release'
           title: '[ci] release'
         env:
           # Needs access to push to main
           GITHUB_TOKEN: ${{ steps.commiter.outputs.token }}
-          OVSX_TOKEN: ${{ secrets.OVSX_TOKEN }}
           # Use OIDC for npm authentication instead of NPM_TOKEN
           NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
+
+      - name: Check if pascal-vscode was published
+        id: vscode-published
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          if echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -e '.[] | select(.name == "pascal-vscode")' > /dev/null; then
+            echo "published=true" >> $GITHUB_OUTPUT
+          else
+            echo "published=false" >> $GITHUB_OUTPUT
+          fi
+  
+      - name: Publish to OpenVSX
+        if: steps.vscode-published.outputs.published == 'true'
+        run: |
+          pnpm exec ovsx publish -p ${{ secrets.OVSX_TOKEN }}

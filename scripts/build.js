@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises';
-import { createVSIX } from '@vscode/vsce';
 import esbuild from 'esbuild';
 import colors from 'piccolore';
 import { glob } from 'tinyglobby';
@@ -7,7 +6,6 @@ import { glob } from 'tinyglobby';
 /** @type {import('esbuild').BuildOptions} */
 const defaultConfig = {
 	entryPoints: ['src/extension.ts', 'src/browser.ts'],
-	minify: false,
 	format: 'esm',
 	platform: 'node',
 	target: 'node20',
@@ -27,12 +25,12 @@ export default async function build() {
 	const isDev = args.slice(-1)[0] === 'IS_DEV';
 
 	const noClean = args.includes('--no-clean-dist');
+	const minify = args.includes('--minify');
 	const cleanDts = args.includes('--clean-dts');
 	const bundle = args.includes('--bundle');
 	const forceCJS = args.includes('--force-cjs');
 
 	const { type = 'module', dependencies = {} } = await readPackageJSON('./package.json');
-	const version = await getInternalPackageVersion('./package.json');
 
 	const format = type === 'module' && !forceCJS ? 'esm' : 'cjs';
 
@@ -45,15 +43,13 @@ export default async function build() {
 	if (!isDev) {
 		await esbuild.build({
 			...config,
+			minify,
 			bundle,
 			external: bundle ? Object.keys(dependencies) : undefined,
 			outdir,
 			outExtension: forceCJS ? { '.js': '.cjs' } : {},
 			format
 		});
-
-		const packagePath = `pascal-${version}.vsix`;
-		await createVSIX({ dependencies: false, packagePath });
 		return;
 	}
 
@@ -79,6 +75,7 @@ export default async function build() {
 
 	const builder = await esbuild.context({
 		...config,
+		minify,
 		outdir,
 		format,
 		sourcemap: 'linked',
@@ -105,10 +102,6 @@ async function clean(outdir, cleanDts) {
 
 async function readPackageJSON(path) {
 	return await fs.readFile(path, { encoding: 'utf8' }).then((res) => JSON.parse(res));
-}
-
-async function getInternalPackageVersion(path) {
-	return readPackageJSON(path).then((res) => res.version);
 }
 
 await build();

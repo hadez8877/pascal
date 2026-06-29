@@ -1,5 +1,5 @@
 {
-  "name": "pascal",
+  "name": "pascal-vscode",
   "displayName": "Pascal",
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
@@ -15,13 +15,6 @@
     "onStartupFinished"
   ],
   "contributes": {
-    "commands": [
-      {
-        "command": "pascal.showChangelog",
-        "title": "Show changelog",
-        "category": "Pascal"
-      }
-    ],
     "themes": [
       {
         "label": "Pascal (Default)",
@@ -51,13 +44,11 @@
     "url": "https://github.com/hadez8877/pascal/issues"
   },
   "scripts": {
-    "build": "node scripts/build.js",
-    "typecheck": "tsc -b",
+    "build": "tsc -b && node scripts/build.js --minify",
     "lint": "biome lint . && eslint --cache --concurrency=auto .",
     "format": "pnpm run format:code && pnpm run format:imports",
     "format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --cache",
     "format:imports": "biome check --formatter-enabled=false --write",
-    "publish": "pnpm run build && pnpm dlx ovsx publish --no-dependencies",
     "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format"
   },
   "devDependencies": {
@@ -70,6 +61,7 @@
     "esbuild": "0.27.3",
     "eslint": "^10.4.0",
     "eslint-plugin-regexp": "^3.1.1",
+    "ovsx": "^0.10.10",
     "piccolore": "0.1.3",
     "prettier": "^3.8.4",
     "tinyglobby": "0.2.16",
