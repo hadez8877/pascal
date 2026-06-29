@@ -14,11 +14,10 @@
   </p>
 </div>
 
-## Overview
+## What is Pascal?
+Pascal is a dark theme for editors, shells, and more. The palette is tuned for long coding sessions: enough contrast to read code clearly, not so intense that your eyes notice it after an hour.
 
-Pascal is a modern dark theme crafted for developers who spend long hours in front of a screen. With carefully selected contrast levels and a harmonious color palette, it reduces eye strain while keeping your code readable and vibrant.
-
-## Preview
+### Preview
 
 ![Preview](assets/preview.png)
 
