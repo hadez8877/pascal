@@ -15,6 +15,7 @@
 </div>
 
 ## What is Pascal?
+
 Pascal is a dark theme for editors, shells, and more. The palette is tuned for long coding sessions: enough contrast to read code clearly, not so intense that your eyes notice it after an hour.
 
 ### Preview
