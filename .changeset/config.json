@@ -3,7 +3,7 @@
   "changelog": ["@changesets/changelog-github", { "repo": "hadez8877/pascal" }],
   "commit": false,
   "linked": [],
-  "access": "restricted",
+  "access": "public",
   "baseBranch": "origin/main",
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
