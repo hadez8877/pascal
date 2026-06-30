@@ -4,13 +4,14 @@
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
   "version": "0.0.1",
+  "private": true,
   "type": "module",
-  "main": "./dist/extension.js",
-  "browser": "./dist/browser.js",
+  "main": "dist/extension.js",
+  "browser": "dist/browser.js",
   "categories": [
     "Themes"
   ],
-  "icon": "./assets/icon.png",
+  "icon": "assets/icon.png",
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -19,7 +20,7 @@
       {
         "label": "Pascal (Default)",
         "uiTheme": "vs-dark",
-        "path": "./themes/default.json"
+        "path": "themes/default.json"
       }
     ]
   },
