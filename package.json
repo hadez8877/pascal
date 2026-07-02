@@ -4,7 +4,6 @@
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
   "version": "0.0.1",
-  "private": true,
   "type": "module",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
