@@ -2,16 +2,8 @@
   - changed-files:
       - any-glob-to-any-file:
           - .github/workflows/**
-'extension: assets':
+# For now, all other changes are considered vscode extension changes, in the future we can split to workspaces
+'extension: vscode':
   - changed-files:
       - any-glob-to-any-file:
-          - assets/**
-'extension: docs':
-  - changed-files:
-      - any-glob-to-any-file:
-          - '**/*.md'
-'extension: open-vsx':
-  - changed-files:
-      - any-glob-to-any-file:
-        - package.json
-        - src/**/*.ts
+        - '**/*'

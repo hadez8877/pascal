@@ -9,7 +9,7 @@ body:
     attributes:
       label: Which extension support is this bug report for?
       options:
-        - open-vsx
+        - vscode
     validations:
       required: true
 
