@@ -4,7 +4,5 @@
   "initialVersions": {
     "pascal-vscode": "0.0.2"
   },
-  "changesets": [
-    "little-seas-strive"
-  ]
+  "changesets": []
 }
