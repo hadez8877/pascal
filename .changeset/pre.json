@@ -1,10 +1,10 @@
 {
   "mode": "pre",
-  "tag": "alpha",
+  "tag": "beta",
   "initialVersions": {
-    "pascal-vscode": "0.0.1"
+    "pascal-vscode": "0.0.2"
   },
   "changesets": [
-    "wise-cows-feel"
+    "little-seas-strive"
   ]
 }
