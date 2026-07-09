@@ -8,9 +8,9 @@
   </p>
 
   <p align="center">
-    <img alt="Version" src="https://img.shields.io/open-vsx/v/hadez8877/pascal?style=for-the-badge">
-    <img alt="Downloads" src="https://img.shields.io/open-vsx/dt/hadez8877/pascal?style=for-the-badge">
-    <img alt="Rating" src="https://img.shields.io/open-vsx/stars/hadez8877/pascal?style=for-the-badge">
+    <img alt="Version" src="https://img.shields.io/open-vsx/v/hadez8877/pascal-vscode?style=for-the-badge">
+    <img alt="Downloads" src="https://img.shields.io/open-vsx/dt/hadez8877/pascal-vscode?style=for-the-badge">
+    <img alt="Rating" src="https://img.shields.io/open-vsx/stars/hadez8877/pascal-vscode?style=for-the-badge">
   </p>
 </div>
 
