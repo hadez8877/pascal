@@ -70,7 +70,7 @@ importers:
         specifier: ^0.10.12
         version: 0.10.12
       pascal-scripts:
-        specifier: 'workspace:'
+        specifier: workspace:1.0.0-beta.0
         version: link:../../../scripts
       prettier:
         specifier: ^3.8.4

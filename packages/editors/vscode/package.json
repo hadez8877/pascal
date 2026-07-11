@@ -53,7 +53,7 @@
     "eslint": "^10.4.0",
     "eslint-plugin-regexp": "^3.1.1",
     "ovsx": "^0.10.12",
-    "pascal-scripts": "workspace:",
+    "pascal-scripts": "workspace:1.0.0-beta.0",
     "prettier": "^3.8.4",
     "turbo": "2.10.2",
     "typescript": "^6.0.3"

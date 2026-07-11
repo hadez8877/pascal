@@ -2,9 +2,11 @@
   "mode": "pre",
   "tag": "beta",
   "initialVersions": {
-    "pascal-vscode": "0.0.2"
+    "pascal-vscode": "0.0.2",
+    "pascal-scripts": "0.0.0"
   },
   "changesets": [
+    "lemon-rockets-marry",
     "little-seas-strive"
   ]
 }
