@@ -1,1 +1,1 @@
-C:/Users/P. Fabricio/Dev/pascal/packages/editors/vscode/README.md
+./packages/editors/vscode/README.md
