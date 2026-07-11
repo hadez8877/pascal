@@ -5,6 +5,13 @@ on:
     branches:
       - main
 
+defaults:
+  run:
+    shell: bash
+
+env:
+  FORCE_COLOR: true
+
 jobs:
   release:
     name: Changelog PR or Release
@@ -28,15 +35,15 @@ jobs:
         with:
           node-version: 24.16.0
 
+      - name: Build Packages
+        run: pnpm exec turbo run build --filter="...[HEAD^1]" --concurrency=4
+
       - name: Setup git commiter
         id: commiter
         uses: ./.github/actions/setup-git-commiter
         with:
           pascal-client-id: ${{ vars.PASCAL_CLIENT_ID }}
           pascal-app-secret: ${{ secrets.PASCAL_APP_SECRET }}
-
-      - name: Build extension
-        run: pnpm run build
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -62,8 +69,33 @@ jobs:
           else
             echo "published=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Prepare vscode folder
+        if: steps.vscode-published.outputs.published == 'true'
+        working-directory: ./packages/editors/vscode
+        run: |
+          rm -rf node_modules
+          # Also delete root package.json and node_modules to avoid vsce picking up any monorepo info
+          mv ../../../package.json ../../../package.temp.json
+          rm -rf ../../../node_modules
+          sleep 60s # wait for npm registry to update
+          npm i --workspaces=false # vsce does not support pnpm, so we need to pretend this is not a monorepo and use npm
   
       - name: Publish to OpenVSX
         if: steps.vscode-published.outputs.published == 'true'
+        working-directory: ./packages/editors/vscode
         run: |
           pnpm exec ovsx publish -p ${{ secrets.OVSX_TOKEN }}
+
+      - name: Restore root package.json and node_modules
+        if: steps.vscode-published.outputs.published == 'true'
+        run: |
+          mv ./package.temp.json ./package.json
+          pnpm install --frozen-lockfile
+
+      - name: Dispatch post-release event
+        if: steps.changesets.outputs.published == 'true' && github.ref_name == 'main'
+        uses: peter-evans/repository-dispatch@28959ce8df70de7be546dd1250a005dd32156697 # v4.0.1
+        with:
+          token: ${{ steps.commiter.outputs.token }}
+          event-type: release-published

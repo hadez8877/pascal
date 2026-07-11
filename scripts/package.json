@@ -1,0 +1,36 @@
+{
+  "name": "pascal-scripts",
+  "version": "0.0.0",
+  "description": "A set of scripts that we use for our workflows",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "bin": {
+    "pascal-scripts": "./index.js"
+  },
+  "//a": "MOST PACKAGES SHOULD GO IN DEV_DEPENDENCIES! THEY WILL BE BUNDLED.",
+  "//b": "DEPENDENCIES IS FOR UNBUNDLED PACKAGES",
+  "author": "Fabricio Pasapera Viera (@Hadez)",
+  "license": "MIT",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadez8877/pascal.git",
+    "directory": "scripts"
+  },
+  "bugs": {
+    "url": "https://github.com/hadez8877/pascal/issues"
+  },
+  "funding": "https://github.com/hadez8877/pascal?sponsor",
+  "devDependencies": {
+    "turbo": "^2.9.18"
+  },
+  "dependencies": {
+    "esbuild": "^0.27.3",
+    "piccolore": "^0.1.3",
+    "tinyglobby": "^0.2.16"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

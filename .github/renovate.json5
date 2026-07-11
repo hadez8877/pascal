@@ -33,6 +33,14 @@
       "enabled": false
     },
     //#endregion
+
+    //#region Editor groups (no major-only)
+    {
+      "groupName": "pascal-vscode",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchFileNames": ["packages/editors/vscode/**"]
+    }
   ],
   "ignoreDeps": [
     // manually bumping deps
@@ -42,7 +50,10 @@
 
     // manually bumping workflow actions
     "actions/labeler",
-    "github/issue-labeler"
+    "github/issue-labeler",
+
+    // follow vite deps version
+    "esbuild"
   ],
   "minimumReleaseAge": "3 days"
 }

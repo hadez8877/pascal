@@ -10,16 +10,8 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "preLaunchTask": "${defaultBuildTask}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "--disable-extensions", "${file}"]
-    },
-    {
-      "name": "Launch Theme (with extensions)",
-      "type": "extensionHost",
-      "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "preLaunchTask": "${defaultBuildTask}",
-      "args": ["--extensionDevelopmentPath=${workspaceFolder}", "${file}"]
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"],
+      "outFiles": ["${workspaceRoot}/*/*/dist/**/*.js"]
     }
   ]
 }

@@ -1,4 +1,4 @@
-# pascal
+# pascal-vscode
 
 ## 0.1.0-beta.0
 

@@ -1,4 +1,22 @@
+packages:
+  - 'packages/**/*'
+  - 'scripts'
+
+preferWorkspacePackages: true
+linkWorkspacePackages: true
+saveWorkspaceProtocol: false # This prevents the examples to have the `workspace:` prefix
+autoInstallPeers: false
+dedupePeers: true
+
+# Prevent installation of packages where trust level decreases
+trustPolicy: 'no-downgrade'
+trustPolicyExclude:
+  # Outdated dependencies of @vscode/vsce
+  - 'semver@6.3.1 || 5.7.2'
+
+# Control whether packages can run postinstall scripts. I disallow this to avoid the security risk
+# of running third-party code on install.
 allowBuilds:
-  '@vscode/vsce-sign': true
-  esbuild: true
-  keytar: true
+  '@vscode/vsce-sign': false
+  esbuild: false
+  keytar: false

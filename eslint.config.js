@@ -14,10 +14,19 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /** @type {import('eslint').Config[]} */
-const config = [
+const configs = [
 	// If ignores is used without any other keys in the configuration object, then the patterns act as global ignores.
 	// ref: https://eslint.org/docs/latest/use/configure/configuration-files#globally-ignoring-files-with-ignores
-	globalIgnores(['**/.*', '**/*.d.ts', 'dist/', 'scripts/', '.github/', '.changeset/']),
+	globalIgnores([
+		'**/.*',
+		'**/*.d.ts',
+		'packages/**/*.min.js',
+		'packages/**/dist/',
+		// Runtime templates with placeholder syntax (e.g. `@@GET_ENV@@`); not real modules.
+		'scripts/',
+		'.github/',
+		'.changeset/'
+	]),
 
 	...tseslint.configs.recommendedTypeChecked,
 	...tseslint.configs.stylisticTypeChecked,
@@ -39,9 +48,6 @@ const config = [
 			// Type-aware rules that Biome cannot replace
 			'@typescript-eslint/switch-exhaustiveness-check': 'error',
 			'@typescript-eslint/no-shadow': 'error',
-
-			// Disable "no-floating-promises" rule for all source files until we have the bandwidth to address all the errors.
-			'@typescript-eslint/no-floating-promises': 'off',
 
 			// Disabled - now handled by Biome
 			'no-console': 'off', // Biome: suspicious.noConsole
@@ -85,7 +91,21 @@ const config = [
 			'regexp/prefer-regexp-exec': 'warn',
 			'regexp/prefer-regexp-test': 'warn'
 		}
+	},
+	{
+		files: ['packages/**/src/**/*.ts'],
+		rules: {
+			// Disable "no-floating-promises" rule for all source files until we have the bandwidth to address all the errors.
+			'@typescript-eslint/no-floating-promises': 'off'
+		}
+	},
+
+	{
+		files: ['packages/editors/vscode/**/*'],
+		rules: {
+			'@typescript-eslint/no-require-imports': 'off'
+		}
 	}
 ];
 
-export default config;
+export default configs;

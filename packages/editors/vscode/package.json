@@ -1,0 +1,66 @@
+{
+  "name": "pascal-vscode",
+  "displayName": "Pascal",
+  "publisher": "hadez8877",
+  "description": "A modern dark theme for many editors, shells, and more!",
+  "version": "0.1.0-beta.0",
+  "type": "module",
+  "main": "dist/extension.js",
+  "browser": "dist/browser.js",
+  "categories": [
+    "Themes"
+  ],
+  "icon": "assets/icon.png",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Pascal (Default)",
+        "uiTheme": "vs-dark",
+        "path": "themes/default.json"
+      }
+    ]
+  },
+  "configuration": {
+    "title": "Pascal",
+    "properties": {
+      "pascal.editorTheme": {
+        "type": "string",
+        "default": "Pascal (Default)",
+        "markdownDescription": "Switch to different editor theme",
+        "enum": [
+          "Pascal (Default)"
+        ]
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadez8877/pascal.git",
+    "directory": "packages/editors/vscode"
+  },
+  "scripts": {
+    "build": "pascal-scripts build \"src/{extension,browser}.ts\" --copy-wasm --minify",
+    "lint": "biome lint . && eslint --cache --concurrency=auto ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.88.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "0.27.3",
+    "eslint": "^10.4.0",
+    "eslint-plugin-regexp": "^3.1.1",
+    "ovsx": "^0.10.12",
+    "pascal-scripts": "workspace:",
+    "prettier": "^3.8.4",
+    "turbo": "2.10.2",
+    "typescript": "^6.0.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "packageManager": "pnpm@11.9.0"
+}

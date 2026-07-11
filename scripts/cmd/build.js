@@ -5,10 +5,9 @@ import { glob } from 'tinyglobby';
 
 /** @type {import('esbuild').BuildOptions} */
 const defaultConfig = {
-	entryPoints: ['src/extension.ts', 'src/browser.ts'],
 	format: 'esm',
 	platform: 'node',
-	target: 'node20',
+	target: 'node22',
 	sourcemap: false,
 	sourcesContent: false
 };
@@ -18,16 +17,25 @@ const dt = new Intl.DateTimeFormat('en-us', {
 	minute: '2-digit'
 });
 
-const [...args] = process.argv.slice(2);
-
-export default async function build() {
+export default async function build(...args) {
 	const config = Object.assign({}, defaultConfig);
 	const isDev = args.slice(-1)[0] === 'IS_DEV';
+	const patterns = args
+		.filter((f) => !!f) // remove empty args
+		.filter((f) => !f.startsWith('--')) // remove flags
+		.map((f) => f.replace(/^'/, '').replace(/'$/, '')); // Needed for Windows
+	let entryPoints = [].concat(
+		...(await Promise.all(
+			patterns.map((pattern) =>
+				glob(pattern, { filesOnly: true, expandDirectories: false, absolute: true })
+			)
+		))
+	);
 
 	const noClean = args.includes('--no-clean-dist');
-	const minify = args.includes('--minify');
 	const cleanDts = args.includes('--clean-dts');
 	const bundle = args.includes('--bundle');
+	const minify = args.includes('--minify');
 	const forceCJS = args.includes('--force-cjs');
 
 	const { type = 'module', dependencies = {} } = await readPackageJSON('./package.json');
@@ -46,6 +54,7 @@ export default async function build() {
 			minify,
 			bundle,
 			external: bundle ? Object.keys(dependencies) : undefined,
+			entryPoints,
 			outdir,
 			outExtension: forceCJS ? { '.js': '.cjs' } : {},
 			format
@@ -54,7 +63,7 @@ export default async function build() {
 	}
 
 	const rebuildPlugin = {
-		name: 'pascal:rebuild',
+		name: 'opencli:rebuild',
 		setup(build) {
 			build.onEnd(async (result) => {
 				const date = dt.format(new Date());
@@ -75,7 +84,7 @@ export default async function build() {
 
 	const builder = await esbuild.context({
 		...config,
-		minify,
+		entryPoints,
 		outdir,
 		format,
 		sourcemap: 'linked',
@@ -103,5 +112,3 @@ async function clean(outdir, cleanDts) {
 async function readPackageJSON(path) {
 	return await fs.readFile(path, { encoding: 'utf8' }).then((res) => JSON.parse(res));
 }
-
-await build();
