@@ -50,17 +50,17 @@
     "@types/vscode": "^1.88.0",
     "@vscode/vsce": "^3.9.2",
     "esbuild": "0.27.3",
-    "eslint": "^10.4.0",
+    "eslint": "^10.7.0",
     "eslint-plugin-regexp": "^3.1.1",
     "ovsx": "^0.10.12",
     "pascal-scripts": "workspace:1.0.0-beta.0",
-    "prettier": "^3.8.4",
-    "turbo": "2.10.2",
+    "prettier": "^3.9.5",
+    "turbo": "2.10.4",
     "typescript": "^6.0.3"
   },
   "license": "MIT",
   "engines": {
     "vscode": "^1.88.0"
   },
-  "packageManager": "pnpm@11.9.0"
+  "packageManager": "pnpm@11.11.0"
 }
