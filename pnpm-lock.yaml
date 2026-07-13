@@ -34,7 +34,7 @@ importers:
         specifier: 0.2.16
         version: 0.2.16
       turbo:
-        specifier: ^2.10.2
+        specifier: ^2.10.4
         version: 2.10.4
       typescript:
         specifier: ~6.0.3
@@ -95,7 +95,7 @@ importers:
         version: 0.2.16
     devDependencies:
       turbo:
-        specifier: ^2.9.18
+        specifier: ^2.10.4
         version: 2.10.4
 
 packages:
