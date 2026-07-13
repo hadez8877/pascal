@@ -61,6 +61,5 @@
   "license": "MIT",
   "engines": {
     "vscode": "^1.88.0"
-  },
-  "packageManager": "pnpm@11.11.0"
+  }
 }
