@@ -1,9 +1,21 @@
+# See https://github.com/actions/labeler
+
 'actions':
   - changed-files:
       - any-glob-to-any-file:
           - .github/workflows/**
-# For now, all other changes are considered vscode extension changes, in the future we can split to workspaces
-'extension: vscode':
+
+'area: editors':
   - changed-files:
       - any-glob-to-any-file:
-        - '**/*'
+          - packages/editors/**
+
+'area: terminals':
+  - changed-files:
+      - any-glob-to-any-file:
+          - packages/terminals/**
+
+'pkg: vscode':
+  - changed-files:
+      - any-glob-to-any-file:
+        - packages/editors/vscode/**
