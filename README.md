@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Pascal logo" src="./.github/assets/icon.svg" height="200px" />
+  <img alt="Pascal logo" src="./.github/assets/readme-icon.png" height="200px" />
   <h1>Pascal</h1>
   <p>
     A modern dark theme for your favorite editors, shells and more
@@ -20,7 +20,7 @@ Pascal is a dark theme designed for long coding sessions. The color palette is c
 
 <details>
   <summary>Click to view the previews</summary>
-  <img src="./.github/assets/previews/default.png">
+  <img src="./packages/editors/vscode/assets/previews/default.png">
 </details>
 
 ### Features

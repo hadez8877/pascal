@@ -4,7 +4,7 @@ Pascal is a dark theme for editors, shells, and more. The palette is tuned for l
 
 ## Preview
 
-![Preview](../../../.github/assets/previews/default.png)
+![Preview](./assets/previews/default.png)
 
 ## Installation
 
