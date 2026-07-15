@@ -52,7 +52,7 @@ Install the extension from [Open-VSX](https://open-vsx.org/extension/hadez8877/p
 
 ## Community
 
-The Pascal community can be found on [GitHub Discussions][github-discussions-url], where you can ask questions, RFC ideas, and get support.
+The Pascal community can be found on [GitHub Discussions][github-discussions-page], where you can ask questions, RFC ideas, and get support.
 
 Our [Code of Conduct](./CODE_OF_CONDUCT.md) applies to all Pascal community channels.
 
@@ -66,4 +66,4 @@ New contributors welcome! Check out our [Contributing Manual](./CONTRIBUTING.md)
 - [License](./LICENSE)
 
 [github-release-page]: https://github.com/hadez8877/pascal/releases/latest
-[github-discussions-url]: https://github.com/hadez8877/pascal/discussions
+[github-discussions-page]: https://github.com/hadez8877/pascal/discussions
