@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Pascal logo" src="./.github/assets/readme-icon.png" height="200px" />
+  <img alt="Pascal logo" src="./.github/assets/readme-icon.svg" height="200px" />
   <h1>Pascal</h1>
   <p>
     A modern dark theme for your favorite editors, shells and more
