@@ -20,7 +20,7 @@ Pascal is a dark theme designed for long coding sessions. The color palette is c
 
 <details>
   <summary>Click to view the previews</summary>
-  <img src="./packages/editors/vscode/assets/previews/default.png">
+  <img src="./packages/editors/vscode/assets/screenshots/default.jpg">
 </details>
 
 ### Features

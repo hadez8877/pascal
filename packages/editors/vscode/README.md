@@ -1,10 +1,10 @@
-# Pascal for VSCode
+# Pascal for [VSCode](https://code.visualstudio.com)
 
 Pascal is a dark theme for editors, shells, and more. The palette is tuned for long coding sessions: enough contrast to read code clearly, not so intense that your eyes notice it after an hour.
 
 ## Preview
 
-![Preview](./assets/previews/default.png)
+![Preview](./assets/screenshots/default.jpg)
 
 ## Installation
 
