@@ -48,7 +48,7 @@
     "directory": "packages/editors/vscode"
   },
   "scripts": {
-    "build": "pascal-scripts build \"src/**/*.{ts,js}\" --copy-wasm --minify",
+    "build": "tsc -b && node scripts/build.mjs -- --minify",
     "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "devDependencies": {
@@ -58,9 +58,10 @@
     "esbuild": "0.27.3",
     "eslint": "^10.7.0",
     "eslint-plugin-regexp": "^3.1.1",
+    "kleur": "^4.1.5",
     "ovsx": "^0.10.12",
-    "pascal-scripts": "workspace:1.0.0-beta.0",
     "prettier": "^3.9.5",
+    "tinyglobby": "^0.2.16",
     "turbo": "2.10.4",
     "typescript": "^6.0.3"
   },

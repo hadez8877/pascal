@@ -1,4 +1,7 @@
 {
   "extends": "../../../configs/tsconfig.build.json",
-  "include": ["src/**/*.ts"]
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "sourceMap": true
+  }
 }

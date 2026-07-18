@@ -70,15 +70,18 @@ importers:
       eslint-plugin-regexp:
         specifier: ^3.1.1
         version: 3.1.1(eslint@10.7.0)
+      kleur:
+        specifier: ^4.1.5
+        version: 4.1.5
       ovsx:
         specifier: ^0.10.12
         version: 0.10.12
-      pascal-scripts:
-        specifier: workspace:1.0.0-beta.0
-        version: link:../../../scripts
       prettier:
         specifier: ^3.9.5
         version: 3.9.5
+      tinyglobby:
+        specifier: ^0.2.16
+        version: 0.2.16
       turbo:
         specifier: 2.10.4
         version: 2.10.4
@@ -1715,6 +1718,10 @@ packages:
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
+
+  kleur@4.1.5:
+    resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
+    engines: {node: '>=6'}
 
   leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
@@ -4346,6 +4353,8 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
+
+  kleur@4.1.5: {}
 
   leven@3.1.0: {}
 
