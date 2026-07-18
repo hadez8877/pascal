@@ -1,7 +1,7 @@
 import { TextDecoder } from 'node:util';
 import { marked } from 'marked';
 import { Uri, workspace } from 'vscode';
-import { resolvePath } from '../utils.js'
+import { resolvePath } from '../utils.js';
 import { webviewController } from '../webviewController.js';
 
 export const showChangelog = webviewController({
@@ -10,9 +10,10 @@ export const showChangelog = webviewController({
 
 	run: async () => {
 		const CHANGELOG_PATH = resolvePath('../CHANGELOG.md');
-		const displayContent = await workspace.fs.readFile(Uri.file(CHANGELOG_PATH))
-		  .then((data) => new TextDecoder().decode(data))
-		  .then((content) => marked.parse(content));
+		const displayContent = await workspace.fs
+			.readFile(Uri.file(CHANGELOG_PATH))
+			.then((data) => new TextDecoder().decode(data))
+			.then((content) => marked.parse(content));
 
 		return Promise.resolve(displayContent);
 	}

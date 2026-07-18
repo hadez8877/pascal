@@ -1,4 +1,3 @@
-
 /**
  * The options for a webview controller
  */
@@ -9,9 +8,8 @@ export type WebviewControllerOptions = {
 };
 
 export interface WebviewControllerInfo extends WebviewControllerOptions {
-	id: string
-	displayName: string
-	dispose(): void
-	run(): Promise<void>
+	id: string;
+	displayName: string;
+	dispose(): void;
+	run(): Promise<void>;
 }
-

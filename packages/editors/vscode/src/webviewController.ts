@@ -10,7 +10,7 @@ export function webviewController({ id, displayName, run }: WebviewControllerOpt
 	return {
 		id,
 		displayName,
-		
+
 		dispose() {
 			if (disposablePanel) {
 				disposablePanel.dispose();
