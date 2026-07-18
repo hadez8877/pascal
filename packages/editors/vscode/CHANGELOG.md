@@ -1,5 +1,23 @@
 # pascal-vscode
 
+## 0.1.0-beta.1
+
+### Minor Changes
+
+- [`3bd2631`](https://github.com/hadez8877/pascal/commit/3bd26319b9fcca77dd3223095b42d54ff62c3c62) Thanks [@hadez8877](https://github.com/hadez8877)! - Overhauls the default theme palette with new dark tokens across editor, UI, and terminal surfaces
+
+  If you relied on the previous color scheme, update your theme selection:
+
+  ```json
+  {
+    "workbench.colorTheme": "Pascal (Default)"
+  }
+  ```
+
+  The new palette replaces `semanticTokenColors` with `tokenColors`-only and adds scopes for markup, diff, and bracket pairs.
+
+  Adds a webview system with a **Show Changelog** command to view the CHANGELOG directly in a panel.
+
 ## 0.1.0-beta.0
 
 ### Minor Changes
