@@ -85,7 +85,7 @@ jobs:
         if: steps.vscode-published.outputs.published == 'true'
         working-directory: ./packages/editors/vscode
         run: |
-          pnpm exec ovsx publish -p ${{ secrets.OVSX_TOKEN }}
+          npx ovsx publish -p ${{ secrets.OVSX_TOKEN }}
 
       - name: Restore root package.json and node_modules
         if: steps.vscode-published.outputs.published == 'true'
