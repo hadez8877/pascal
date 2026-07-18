@@ -4,12 +4,8 @@
 export type WebviewControllerOptions = {
 	id: string;
 	displayName: string;
-	run(): Promise<string>;
+	run(): Promise<void | string>;
 };
-
 export interface WebviewControllerInfo extends WebviewControllerOptions {
-	id: string;
-	displayName: string;
 	dispose(): void;
-	run(): Promise<void>;
 }

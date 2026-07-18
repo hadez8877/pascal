@@ -1,9 +1,13 @@
 import type { Disposable, WebviewPanel } from 'vscode';
 import { Uri, ViewColumn, window } from 'vscode';
-import type { WebviewControllerOptions } from './types/webview.js';
+import type { WebviewControllerInfo, WebviewControllerOptions } from './types/webview.js';
 import { resolvePath } from './utils.js';
 
-export function webviewController({ id, displayName, run }: WebviewControllerOptions) {
+export function webviewController({
+	id,
+	displayName,
+	run
+}: WebviewControllerOptions): WebviewControllerInfo {
 	let panel: WebviewPanel | undefined;
 	let disposablePanel: Disposable | undefined;
 
@@ -23,11 +27,11 @@ export function webviewController({ id, displayName, run }: WebviewControllerOpt
 			}
 		},
 
-		async run(): Promise<void> {
+		async run() {
 			const content = await run();
 
 			if (panel !== undefined) {
-				panel.webview.html = content;
+				panel.webview.html = content || 'No content available';
 				return panel.reveal(ViewColumn.Active);
 			}
 
@@ -46,7 +50,7 @@ export function webviewController({ id, displayName, run }: WebviewControllerOpt
 				disposablePanel = undefined;
 			});
 
-			panel.webview.html = content;
+			panel.webview.html = content || 'No content available';
 		}
 	};
 }
