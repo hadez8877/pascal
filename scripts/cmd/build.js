@@ -5,6 +5,7 @@ import { glob } from 'tinyglobby';
 
 /** @type {import('esbuild').BuildOptions} */
 const defaultConfig = {
+	minify: false,
 	format: 'esm',
 	platform: 'node',
 	target: 'node22',
@@ -35,7 +36,6 @@ export default async function build(...args) {
 	const noClean = args.includes('--no-clean-dist');
 	const cleanDts = args.includes('--clean-dts');
 	const bundle = args.includes('--bundle');
-	const minify = args.includes('--minify');
 	const forceCJS = args.includes('--force-cjs');
 
 	const { type = 'module', dependencies = {} } = await readPackageJSON('./package.json');
@@ -51,7 +51,6 @@ export default async function build(...args) {
 	if (!isDev) {
 		await esbuild.build({
 			...config,
-			minify,
 			bundle,
 			external: bundle ? Object.keys(dependencies) : undefined,
 			entryPoints,
@@ -63,7 +62,7 @@ export default async function build(...args) {
 	}
 
 	const rebuildPlugin = {
-		name: 'opencli:rebuild',
+		name: 'pascal:rebuild',
 		setup(build) {
 			build.onEnd(async (result) => {
 				const date = dt.format(new Date());
