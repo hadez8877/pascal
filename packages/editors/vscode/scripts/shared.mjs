@@ -3,7 +3,7 @@ import { dim, green, red, yellow } from 'kleur/colors';
 
 const dt = new Intl.DateTimeFormat('en-us', {
 	hour: '2-digit',
-	minute: '2-digit',
+	minute: '2-digit'
 });
 
 /**
@@ -19,11 +19,11 @@ export const rebuildPlugin = {
 			} else {
 				if (result.warnings.length) {
 					console.info(
-						dim(`[${date}] `) + yellow('⚠ updated with warnings:\n' + result.warnings.join('\n')),
+						dim(`[${date}] `) + yellow('⚠ updated with warnings:\n' + result.warnings.join('\n'))
 					);
 				}
 				console.info(dim(`[${date}] `) + green('✔ updated'));
 			}
 		});
-	},
+	}
 };
