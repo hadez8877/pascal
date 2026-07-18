@@ -21,6 +21,12 @@
         "uiTheme": "vs-dark",
         "path": "themes/default.json"
       }
+    ],
+    "commands": [
+      {
+        "command": "pascal.showChangelog",
+        "title": "Pascal: Show Changelog"
+      }
     ]
   },
   "configuration": {
@@ -42,7 +48,7 @@
     "directory": "packages/editors/vscode"
   },
   "scripts": {
-    "build": "pascal-scripts build \"src/{extension,browser}.ts\" --copy-wasm --minify",
+    "build": "pascal-scripts build \"src/**/*.{ts,js}\" --copy-wasm --minify",
     "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "devDependencies": {
@@ -57,6 +63,9 @@
     "prettier": "^3.9.5",
     "turbo": "2.10.4",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "marked": "^18.0.6"
   },
   "license": "MIT",
   "engines": {

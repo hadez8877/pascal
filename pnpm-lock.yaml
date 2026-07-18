@@ -47,6 +47,10 @@ importers:
         version: 4.1.10(@types/node@24.13.2)(esbuild@0.27.3)
 
   packages/editors/vscode:
+    dependencies:
+      marked:
+        specifier: ^18.0.6
+        version: 18.0.6
     devDependencies:
       '@types/node':
         specifier: ^24.10.1
@@ -1851,6 +1855,11 @@ packages:
 
   markdown-it@14.2.0:
     resolution: {integrity: sha512-1TGiQiJVRQ3NPmZH6sx5Cfnmg6GQm9jvC1ch4TK511NjSJvjzKLzn5pPfZRNZkRPZP0HqCioSndqH8v2nRaWVQ==}
+    hasBin: true
+
+  marked@18.0.6:
+    resolution: {integrity: sha512-MrV5puXBfuiy6wl6DLaq3BtIJQAJToAd5zt/ZKhRfGRAuFPALE7/4Y7jnxRQoEgK/pBgurGqLyAuRgZ2xOjr6w==}
+    engines: {node: '>= 20'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -4446,6 +4455,8 @@ snapshots:
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
+
+  marked@18.0.6: {}
 
   math-intrinsics@1.1.0: {}
 
