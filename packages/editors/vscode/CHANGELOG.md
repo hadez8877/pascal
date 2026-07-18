@@ -1,5 +1,11 @@
 # pascal-vscode
 
+## 0.1.0-beta.2
+
+### Patch Changes
+
+- [`eed4c8e`](https://github.com/hadez8877/pascal/commit/eed4c8e50ed4504ab5f4744be7d0ae23ff2907e8) Thanks [@hadez8877](https://github.com/hadez8877)! - Refactors the build pipeline to use `tsc` and a local `build.mjs` script instead of `pascal-scripts build`
+
 ## 0.1.0-beta.1
 
 ### Minor Changes

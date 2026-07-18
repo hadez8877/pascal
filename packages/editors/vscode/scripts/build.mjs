@@ -32,7 +32,7 @@ export default async function build() {
 
 	const builder = await esbuild.context({
 		...config,
-		plugins: [rebuildPlugin],
+		plugins: [rebuildPlugin]
 	});
 
 	await builder.watch();
