@@ -1,5 +1,11 @@
 # pascal-vscode
 
+## 0.1.0-beta.3
+
+### Patch Changes
+
+- [`5f143cb`](https://github.com/hadez8877/pascal/commit/5f143cbe3b2dde5a98df733434417105c720c647) Thanks [@hadez8877](https://github.com/hadez8877)! - Updates internal metadata and documentation formatting for improved package discoverability
+
 ## 0.1.0-beta.2
 
 ### Patch Changes
