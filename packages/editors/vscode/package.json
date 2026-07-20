@@ -44,7 +44,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hadez8877/pascal.git",
+    "url": "https://github.com/hadez8877/pascal.git",
     "directory": "packages/editors/vscode"
   },
   "scripts": {

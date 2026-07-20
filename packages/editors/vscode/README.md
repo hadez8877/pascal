@@ -4,7 +4,7 @@ Pascal is a dark theme for editors, shells, and more. The palette is tuned for l
 
 ## Preview
 
-![Preview][pascal-default-preview]
+![Preview](./assets/screenshots/default.jpg)
 
 ## Installation
 
@@ -19,5 +19,3 @@ Install the extension from a Marketplace:
 Download the VSIX from
 [the latest GitHub release](https://github.com/hadez8877/pascal/releases/latest).
 Open the Command Palette and select "Extensions: Install from VSIX...", then open the file you just downloaded.
-
-[pascal-default-preview]: https://raw.githubusercontent.com/hadez8877/pascal/main/packages/editors/vscode/assets/screenshots/default.jpg
