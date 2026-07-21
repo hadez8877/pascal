@@ -1,5 +1,11 @@
 # pascal-vscode
 
+## 0.1.0-beta.5
+
+### Patch Changes
+
+- [`a148d99`](https://github.com/hadez8877/pascal/commit/a148d9996088459c161f9201c852cecd8dff1d78) Thanks [@hadez8877](https://github.com/hadez8877)! - Fixes preview image not showing in VS Code Marketplace and OpenVSX
+
 ## 0.1.0-beta.4
 
 ### Patch Changes
