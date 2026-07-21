@@ -5,12 +5,44 @@
   "description": "A modern dark theme for many editors, shells, and more!",
   "version": "0.1.0-beta.4",
   "type": "module",
+  "icon": "assets/icon.png",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadez8877/pascal.git",
+    "directory": "packages/editors/vscode"
+  },
+  "scripts": {
+    "build": "tsc -b && node scripts/build.mjs -- --minify",
+    "lint": "biome lint . && eslint --cache --concurrency=auto ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.88.0",
+    "@vscode/vsce": "^3.9.2",
+    "esbuild": "0.27.3",
+    "eslint": "^10.7.0",
+    "eslint-plugin-regexp": "^3.1.1",
+    "kleur": "^4.1.5",
+    "ovsx": "^0.10.12",
+    "prettier": "^3.9.5",
+    "tinyglobby": "^0.2.16",
+    "turbo": "2.10.4",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "marked": "^18.0.6"
+  },
   "categories": [
     "Themes"
   ],
-  "icon": "assets/icon.png",
+  "keywords": [
+    "pascal",
+    "vsc-theme",
+    "theme",
+    "vscode"
+  ],
   "activationEvents": [
     "onStartupFinished"
   ],
@@ -42,32 +74,7 @@
       }
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hadez8877/pascal.git",
-    "directory": "packages/editors/vscode"
-  },
-  "scripts": {
-    "build": "tsc -b && node scripts/build.mjs -- --minify",
-    "lint": "biome lint . && eslint --cache --concurrency=auto ."
-  },
-  "devDependencies": {
-    "@types/node": "^24.10.1",
-    "@types/vscode": "^1.88.0",
-    "@vscode/vsce": "^3.9.2",
-    "esbuild": "0.27.3",
-    "eslint": "^10.7.0",
-    "eslint-plugin-regexp": "^3.1.1",
-    "kleur": "^4.1.5",
-    "ovsx": "^0.10.12",
-    "prettier": "^3.9.5",
-    "tinyglobby": "^0.2.16",
-    "turbo": "2.10.4",
-    "typescript": "^6.0.3"
-  },
-  "dependencies": {
-    "marked": "^18.0.6"
-  },
+  "readme": "README.md",
   "license": "MIT",
   "engines": {
     "vscode": "^1.88.0"
