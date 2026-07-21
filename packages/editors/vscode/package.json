@@ -3,7 +3,7 @@
   "displayName": "Pascal",
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "type": "module",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
