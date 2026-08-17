@@ -25,8 +25,8 @@ importers:
         specifier: ^10.7.0
         version: 10.7.0
       eslint-plugin-regexp:
-        specifier: ^3.1.1
-        version: 3.1.1(eslint@10.7.0)
+        specifier: ^3.2.0
+        version: 3.2.0(eslint@10.7.0)
       prettier:
         specifier: ^3.9.5
         version: 3.9.5
@@ -69,7 +69,7 @@ importers:
         version: 10.7.0
       eslint-plugin-regexp:
         specifier: ^3.1.1
-        version: 3.1.1(eslint@10.7.0)
+        version: 3.2.0(eslint@10.7.0)
       kleur:
         specifier: ^4.1.5
         version: 4.1.5
@@ -1338,8 +1338,8 @@ packages:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
 
-  eslint-plugin-regexp@3.1.1:
-    resolution: {integrity: sha512-MxR5nqoQCtVWmJwia0D2+NlXX1xzdpkslsVOZLEYQ4PQWEaL65PCZXURxaBc3lPnkNFpNxzMIRmYVxdl8giXRA==}
+  eslint-plugin-regexp@3.2.0:
+    resolution: {integrity: sha512-4yq47CnLxyfHFKJEo5kvNaiJ0aDtBxSJWk4M2LiamplUXdWxdlzDYqImb/ZVCp+2BqkQjBAmw4Xc07Q8SXVDZg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: '>=9.38.0'
@@ -1673,9 +1673,9 @@ packages:
     resolution: {integrity: sha512-ePWsvanv0DWuDRsW8dnt+R4jQ31SCRCQ7hhNcPXZPsoBZiemuZNYGf7adZdqX2D86j6rvKp3RpCxVTSb8WQlOw==}
     hasBin: true
 
-  jsdoc-type-pratt-parser@7.2.0:
-    resolution: {integrity: sha512-dh140MMgjyg3JhJZY/+iEzW+NO5xR2gpbDFKHqotCmexElVntw7GjWjt511+C/Ef02RU5TKYrJo/Xlzk+OLaTw==}
-    engines: {node: '>=20.0.0'}
+  jsdoc-type-pratt-parser@9.1.1:
+    resolution: {integrity: sha512-kojSbQb9iQM2bk2PmHiKa3reG0U4v2gN9U8D8+eCQq+4KM5ZXBUyBVeF8KmR0RiwqyrW4+uVWYWTOLnpsavnkw==}
+    engines: {node: ^22.22.2 || >=24.15.0}
 
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
@@ -3936,13 +3936,13 @@ snapshots:
 
   escape-string-regexp@4.0.0: {}
 
-  eslint-plugin-regexp@3.1.1(eslint@10.7.0):
+  eslint-plugin-regexp@3.2.0(eslint@10.7.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@10.7.0)
       '@eslint-community/regexpp': 4.12.2
       comment-parser: 1.4.7
       eslint: 10.7.0
-      jsdoc-type-pratt-parser: 7.2.0
+      jsdoc-type-pratt-parser: 9.1.1
       refa: 0.12.1
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
@@ -4296,7 +4296,9 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdoc-type-pratt-parser@7.2.0: {}
+  jsdoc-type-pratt-parser@9.1.1:
+    dependencies:
+      '@types/estree': 1.0.9
 
   json-buffer@3.0.1: {}
 
