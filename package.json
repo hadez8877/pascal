@@ -38,7 +38,7 @@
     "@types/node": "^24.10.1",
     "eslint": "^10.7.0",
     "eslint-plugin-regexp": "^3.2.0",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "tinyglobby": "0.2.16",
     "turbo": "^2.10.4",
     "typescript": "~6.0.3",
