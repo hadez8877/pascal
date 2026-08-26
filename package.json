@@ -39,7 +39,7 @@
     "eslint": "^10.7.0",
     "eslint-plugin-regexp": "^3.2.0",
     "prettier": "^3.9.5",
-    "tinyglobby": "0.2.16",
+    "tinyglobby": "0.2.17",
     "turbo": "^2.10.4",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.59.1",
