@@ -23,7 +23,7 @@
   },
   "funding": "https://github.com/hadez8877/pascal?sponsor",
   "devDependencies": {
-    "turbo": "^2.10.4"
+    "turbo": "^2.10.12"
   },
   "dependencies": {
     "esbuild": "^0.27.3",
