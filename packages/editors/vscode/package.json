@@ -1,13 +1,17 @@
 {
   "name": "pascal-vscode",
-  "displayName": "Pascal",
+  "displayName": "Pascal for Visual Studio Code",
   "publisher": "hadez8877",
   "description": "A modern dark theme for many editors, shells, and more!",
   "version": "0.1.0-beta.5",
-  "type": "module",
-  "icon": "assets/icon.png",
+  "type": "commonjs",
+  "icon": "icon.png",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
+  "galleryBanner": {
+    "color": "#121212",
+    "theme": "dark"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/hadez8877/pascal.git",
@@ -52,6 +56,11 @@
         "label": "Pascal (Default)",
         "uiTheme": "vs-dark",
         "path": "themes/default.json"
+      },
+      {
+        "label": "Pascal Solar",
+        "uiTheme": "vs",
+        "path": "themes/solar.json"
       }
     ],
     "commands": [
@@ -69,7 +78,8 @@
         "default": "Pascal (Default)",
         "markdownDescription": "Switch to different editor theme",
         "enum": [
-          "Pascal (Default)"
+          "Pascal (Default)",
+          "Pascal Solar"
         ]
       }
     }
