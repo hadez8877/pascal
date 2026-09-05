@@ -1,14 +1,13 @@
-import type { ConfigurationChangeEvent, ExtensionContext } from 'vscode';
-import { window, workspace } from 'vscode';
+import * as vscode from 'vscode';
 
-export const activate = (context: ExtensionContext) => {
+export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
-		workspace.onDidChangeConfiguration((event: ConfigurationChangeEvent) => {
+		vscode.workspace.onDidChangeConfiguration((event: vscode.ConfigurationChangeEvent) => {
 			if (event.affectsConfiguration('pascal')) {
-				window.showErrorMessage(
+				vscode.window.showErrorMessage(
 					"VSCode Web doesn't support advanced Pascal options at the moment."
 				);
 			}
 		})
 	);
-};
+}

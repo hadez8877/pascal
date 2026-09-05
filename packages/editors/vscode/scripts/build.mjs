@@ -17,7 +17,7 @@ export default async function build() {
 		sourcemap: isDev,
 		outdir: 'dist',
 		external: ['vscode', 'marked'],
-		format: 'esm',
+		format: 'cjs',
 		platform: 'node',
 		tsconfig: './tsconfig.json',
 		define: { 'process.env.NODE_ENV': '"production"' },

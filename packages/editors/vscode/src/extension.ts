@@ -1,10 +1,8 @@
-import { commands } from 'vscode';
-import { availableWebviews } from './webviews/availableWebviews.js';
+import type * as vscode from 'vscode';
+import { registerChangelogCommand } from './commands/showChangelog.js';
 
-export function activate() {
-	availableWebviews.forEach((webview) => {
-		commands.registerCommand(webview.id, async () => {
-			await webview.run();
-		});
-	});
+// This method is called when the extension is activated.
+// It initializes the core functionality of the extension.
+export function activate(context: vscode.ExtensionContext) {
+	registerChangelogCommand(context);
 }

@@ -1,5 +1,5 @@
 {
-  "extends": "../../../configs/tsconfig.build.json",
+  "extends": "../../../configs/tsconfig.vscode-extension.json",
   "compilerOptions": {
     "emitDeclarationOnly": false,
     "sourceMap": true
