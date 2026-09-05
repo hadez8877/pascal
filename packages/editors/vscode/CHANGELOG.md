@@ -1,5 +1,23 @@
 # pascal-vscode
 
+## 0.1.0-beta.6
+
+### Minor Changes
+
+- [`c336677`](https://github.com/hadez8877/pascal/commit/c336677f224f95c76f1cdf56a31b598527fbd056) Thanks [@hadez8877](https://github.com/hadez8877)! - Adds a new `Pascal Solar` theme light variant!
+
+  Select it from the Command Palette via **Color Theme → Pascal Solar**, or set it directly:
+
+  ```json
+  {
+    "workbench.colorTheme": "Pascal Solar"
+  }
+  ```
+
+### Patch Changes
+
+- [`fc2d714`](https://github.com/hadez8877/pascal/commit/fc2d714c7e0eb7c0603a4a1d9f440956b53697a8) Thanks [@hadez8877](https://github.com/hadez8877)! - Refactors the extension build to CommonJS to speed up theme activation and reduce bundle overhead
+
 ## 0.1.0-beta.5
 
 ### Patch Changes
