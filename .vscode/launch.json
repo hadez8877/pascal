@@ -12,17 +12,21 @@
       "runtimeExecutable": "${execPath}",
       "args": [
         "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
-        "--disable-extensions"
+        "--disable-extensions",
+        "${workspaceFolder}/packages/editors/vscode/examples"
       ],
-      "outFiles": ["${workspaceRoot}/*/*/dist/**/*.js"]
+      "outFiles": ["${workspaceRoot}packages/editors/vscode/dist/**/*.js"]
     },
     {
       "name": "Launch Theme (with extensions)",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"],
-      "outFiles": ["${workspaceRoot}/*/*/dist/**/*.js"]
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
+        "${workspaceFolder}/packages/editors/vscode/examples"
+      ],
+      "outFiles": ["${workspaceRoot}/packages/editors/vscode/dist/**/*.js"]
     }
   ]
 }

@@ -22,7 +22,8 @@ const configs = [
 		'**/*.d.ts',
 		'packages/**/*.min.js',
 		'packages/**/dist/',
-		// Runtime templates with placeholder syntax (e.g. `@@GET_ENV@@`); not real modules.
+		// Examples files for testing theme highlighting
+		'packages/editors/vscode/examples/',
 		'scripts/',
 		'.github/',
 		'.changeset/'
