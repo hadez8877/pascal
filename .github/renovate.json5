@@ -4,7 +4,8 @@
     "config:recommended",
     "schedule:weekly",
     ":disablePeerDependencies",
-    "regexManagers:biomeVersions",
+    ":disableDependencyDashboard",
+    "customManagers:biomeVersions",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
   "labels": ["dependencies"],
