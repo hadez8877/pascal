@@ -1,5 +1,11 @@
 # pascal-vscode
 
+## 0.1.0-beta.7
+
+### Patch Changes
+
+- [`565f1eb`](https://github.com/hadez8877/pascal/commit/565f1ebe93a95b8c8cd7ba71aa379bb086731efe) Thanks [@hadez8877](https://github.com/hadez8877)! - Fixes the broken preview image in the README
+
 ## 0.1.0-beta.6
 
 ### Minor Changes
