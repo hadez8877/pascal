@@ -18,10 +18,7 @@
 
 Pascal is a dark theme designed for long coding sessions. The color palette is carefully tuned to provide enough contrast to read code clearly without causing eye strain over extended periods.
 
-<details>
-  <summary>Click to view the previews</summary>
-  <img src=".github/assets/screenshots/default.jpg">
-</details>
+![Preview](./.github/assets/preview.jpg)
 
 ### Features
 
