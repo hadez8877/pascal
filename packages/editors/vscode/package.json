@@ -19,6 +19,7 @@
   },
   "scripts": {
     "build": "tsc -b && node scripts/build.mjs -- --minify",
+    "dev": "node scripts/build.mjs -- --watch",
     "lint": "biome lint . && eslint --cache --concurrency=auto ."
   },
   "devDependencies": {

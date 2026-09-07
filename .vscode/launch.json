@@ -12,8 +12,7 @@
       "runtimeExecutable": "${execPath}",
       "args": [
         "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
-        "--disable-extensions",
-        "${workspaceFolder}/packages/editors/vscode/examples"
+        "--disable-extensions"
       ],
       "outFiles": ["${workspaceRoot}packages/editors/vscode/dist/**/*.js"]
     },
@@ -23,8 +22,7 @@
       "request": "launch",
       "runtimeExecutable": "${execPath}",
       "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
-        "${workspaceFolder}/packages/editors/vscode/examples"
+        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"
       ],
       "outFiles": ["${workspaceRoot}/packages/editors/vscode/dist/**/*.js"]
     }

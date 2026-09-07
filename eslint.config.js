@@ -22,8 +22,6 @@ const configs = [
 		'**/*.d.ts',
 		'packages/**/*.min.js',
 		'packages/**/dist/',
-		// Examples files for testing theme highlighting
-		'packages/editors/vscode/examples/',
 		'scripts/',
 		'.github/',
 		'.changeset/'

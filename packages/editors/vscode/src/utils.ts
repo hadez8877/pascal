@@ -1,8 +1,6 @@
 import type { LogOutputChannel } from 'vscode';
 import * as vscode from 'vscode';
 
-export const rootDir = vscode.Uri.file(__dirname);
-
 export const logger: LogOutputChannel = vscode.window.createOutputChannel('Pascal', { log: true });
 
 /**
