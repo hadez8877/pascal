@@ -1,5 +1,13 @@
 # pascal-vscode
 
+## 0.1.0-beta.8
+
+### Minor Changes
+
+- [`f50ba11`](https://github.com/hadez8877/pascal/commit/f50ba119ee1ffacb42c1c4101400503cb9bec159) Thanks [@hadez8877](https://github.com/hadez8877)! - Adds live theme switching from the Pascal theme setting
+
+  Changing the theme in your settings now applies immediately, without prompting to reload the window.
+
 ## 0.1.0-beta.7
 
 ### Patch Changes
