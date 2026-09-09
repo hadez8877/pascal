@@ -17,11 +17,14 @@
       "outFiles": ["${workspaceRoot}packages/editors/vscode/dist/**/*.js"]
     },
     {
-      "name": "Launch Theme (with extensions)",
+      "name": "Launch Theme (web)",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode"],
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
+        "--extensionDevelopmentKind=web"
+      ],
       "outFiles": ["${workspaceRoot}/packages/editors/vscode/dist/**/*.js"]
     }
   ]
