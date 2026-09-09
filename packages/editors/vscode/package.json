@@ -69,19 +69,20 @@
         "command": "pascal.showChangelog",
         "title": "Pascal: Show Changelog"
       }
-    ]
-  },
-  "configuration": {
-    "title": "Pascal",
-    "properties": {
-      "pascal.editorTheme": {
-        "type": "string",
-        "default": "Pascal (Default)",
-        "markdownDescription": "Switch to different editor theme",
-        "enum": [
-          "Pascal (Default)",
-          "Pascal Solar"
-        ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Pascal configuration",
+      "properties": {
+        "pascal.editorTheme": {
+          "type": "string",
+          "default": "Pascal (Default)",
+          "description": "Switch to different editor theme",
+          "enum": [
+            "Pascal (Default)",
+            "Pascal Solar"
+          ]
+        }
       }
     }
   },
