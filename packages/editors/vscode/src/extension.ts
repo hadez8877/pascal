@@ -18,9 +18,9 @@ export function activate(context: vscode.ExtensionContext) {
 				workbench.update('colorTheme', theme, true);
 			}
 		})
-	)
+	);
 }
 
 function getConfig<TReturnType>(path: string, scope?: vscode.ConfigurationScope) {
-  return vscode.workspace.getConfiguration('pascal', scope).get<TReturnType>(path);
+	return vscode.workspace.getConfiguration('pascal', scope).get<TReturnType>(path);
 }
