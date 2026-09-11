@@ -62,4 +62,3 @@ New contributors welcome! Check out our [Contributing Manual](./CONTRIBUTING.md)
 [open-vsx-downloads-badge]: https://img.shields.io/open-vsx/dt/hadez8877/pascal-vscode
 [open-vsx-extension-page]: https://open-vsx.org/extension/hadez8877/pascal-vscode
 [open-vsx-version-badge]: https://img.shields.io/open-vsx/v/hadez8877/pascal-vscode?label=version
-
