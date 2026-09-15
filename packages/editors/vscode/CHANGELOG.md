@@ -1,5 +1,15 @@
 # pascal-vscode
 
+## 0.1.0-beta.9
+
+### Minor Changes
+
+- [`5c1a976`](https://github.com/hadez8877/pascal/commit/5c1a9763118d9a92dda62db4e7440ce497b1a801) Thanks [@hadez8877](https://github.com/hadez8877)! - Adds a notification after Pascal updates that offers to open the changelog
+
+  When the installed version changes, a message asks if you want to review the notes. Choose **Show me** to open the changelog, or **Maybe later** to dismiss it. You can still open it anytime from the Command Palette via **Pascal: Show Changelog**.
+
+  Updates the Visual Studio Code Marketplace icon for the Pascal theme
+
 ## 0.1.0-beta.8
 
 ### Minor Changes
