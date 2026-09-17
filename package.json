@@ -23,7 +23,7 @@
     "format:imports": "biome check --formatter-enabled=false --write",
     "update": "pnpm --recursive update --interactive",
     "update:latest": "pnpm --recursive update --interactive --latest",
-    "version": "changeset version && pnpm install --no-frozen-lockfile && pnpm run format",
+    "version": "changeset version && node ./scripts/editors/sync-vscode-changelog.js && pnpm install --no-frozen-lockfile && pnpm run format",
     "preinstall": "npx only-allow pnpm"
   },
   "workspaces": [

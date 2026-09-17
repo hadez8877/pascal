@@ -16,7 +16,7 @@ export default async function build() {
 		metafile: metaFile,
 		sourcemap: isDev,
 		outdir: 'dist',
-		external: ['vscode', 'marked'],
+		external: ['vscode'],
 		format: 'cjs',
 		platform: 'node',
 		tsconfig: './tsconfig.json',

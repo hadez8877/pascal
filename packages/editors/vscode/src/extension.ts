@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { registerChangelogCommand } from './commands/showChangelog.js';
+import { registerChangelogCommand, showChangelog } from './commands/showChangelog.js';
 import { getInstallKind, rememberInstalledVersion } from './utils.js';
 
 const ACTION_PROPERTIES = {
@@ -23,7 +23,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		);
 
 		if (action === ACTION_PROPERTIES.options.ok) {
-			await vscode.commands.executeCommand('pascal.showChangelog');
+			const changelogPath = vscode.Uri.joinPath(context.extensionUri, 'webviews/changelog.html');
+			await showChangelog(changelogPath)
 		}
 	}
 

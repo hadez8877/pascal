@@ -1,16 +1,14 @@
-import { marked } from 'marked';
 import * as vscode from 'vscode';
 
 export function registerChangelogCommand(context: vscode.ExtensionContext) {
-	const changelogPath = vscode.Uri.joinPath(context.extensionUri, 'CHANGELOG.md');
+	const changelogPath = vscode.Uri.joinPath(context.extensionUri, 'webviews/changelog.html');
 	context.subscriptions.push(
 		vscode.commands.registerCommand('pascal.showChangelog', () => showChangelog(changelogPath))
 	);
 }
 
-async function showChangelog(changelogPath: vscode.Uri) {
+export async function showChangelog(changelogPath: vscode.Uri) {
 	const content = await vscode.workspace.fs.readFile(changelogPath);
-	const contentHTML = await marked.parse(content.toString());
 
 	const panel = vscode.window.createWebviewPanel(
 		'pascal.changelog',
@@ -18,9 +16,10 @@ async function showChangelog(changelogPath: vscode.Uri) {
 		vscode.ViewColumn.Active,
 		{
 			enableFindWidget: true,
-			enableScripts: true
+			enableScripts: true,
+			retainContextWhenHidden: true
 		}
 	);
 
-	panel.webview.html = contentHTML;
+	panel.webview.html = content.toString();
 }
