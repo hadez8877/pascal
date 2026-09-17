@@ -24,7 +24,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 		if (action === ACTION_PROPERTIES.options.ok) {
 			const changelogPath = vscode.Uri.joinPath(context.extensionUri, 'webviews/changelog.html');
-			await showChangelog(changelogPath)
+			await showChangelog(changelogPath);
 		}
 	}
 
