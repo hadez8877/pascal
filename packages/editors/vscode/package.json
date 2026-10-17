@@ -2,10 +2,10 @@
   "name": "pascal-vscode",
   "displayName": "Pascal for Visual Studio Code",
   "publisher": "hadez8877",
-  "description": "A modern dark theme for many editors, shells, and more!",
+  "description": "A modern theme for many editors, shells, and more!",
   "version": "0.1.0-beta.10",
   "type": "commonjs",
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
   "galleryBanner": {
@@ -53,32 +53,47 @@
       {
         "label": "Pascal (Default)",
         "uiTheme": "vs-dark",
-        "path": "themes/default.json"
+        "path": "themes/pascal.json"
       },
       {
         "label": "Pascal Solar",
         "uiTheme": "vs",
-        "path": "themes/solar.json"
+        "path": "themes/pascal-solar.json"
       }
     ],
     "commands": [
       {
-        "command": "pascal.showChangelog",
-        "title": "Pascal: Show Changelog"
+        "command": "pascal.boldStyle",
+        "title": "Pascal: Toggle Bold Style"
+      },
+      {
+        "command": "pascal.italicStyle",
+        "title": "Pascal: Toggle Italic Style"
+      },
+      {
+        "command": "pascal.showReleaseNotes",
+        "title": "Pascal: Show Release Notes"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "Pascal configuration",
       "properties": {
-        "pascal.editorTheme": {
-          "type": "string",
-          "default": "Pascal (Default)",
-          "description": "Switch to different editor theme",
-          "enum": [
-            "Pascal (Default)",
-            "Pascal Solar"
-          ]
+        "pascal.boldStyle.enabled": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show selected syntax scopes in bold. Only scopes the Pascal theme supports are affected."
+        },
+        "pascal.italicStyle.enabled": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show selected syntax scopes in italics. Only scopes the Pascal theme supports are affected."
+        },
+        "pascal.showReleaseNotes": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show release notes automatically when Pascal is updated."
         }
       }
     }

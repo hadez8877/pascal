@@ -1,48 +1,50 @@
 import * as vscode from 'vscode';
-import { registerChangelogCommand, showChangelog } from './commands/showChangelog.js';
-import { getInstallKind, rememberInstalledVersion } from './utils.js';
+import {
+	activate as activateCustomizers,
+	affectsCustomizer,
+	applyCustomizers
+} from './commands/customizers.js';
+import {
+	activate as activateShowReleaseNotes,
+	showReleaseNotes
+} from './commands/showReleaseNotes.js';
+import { isExtensionUpdated, rememberInstalledVersion } from './utils.js';
 
-const ACTION_PROPERTIES = {
-	message: 'Pascal Theme was updated. Do you want to check the changelog for more details?',
-	options: { ok: 'Show me', cancel: 'Maybe later' }
-};
-
-// This method is called when the extension is activated.
-// It initializes the core functionality of the extension.
 export async function activate(context: vscode.ExtensionContext) {
-	registerChangelogCommand(context);
+	const runtimeConfig = vscode.workspace.getConfiguration('pascal');
 
-	const installKind = getInstallKind(context);
-	await rememberInstalledVersion(context);
+	if (isExtensionUpdated(context)) {
+		// An update replaces the theme files with the packaged ones, which have no customizer
+		// tokens, so the enabled customizers have to be written again.
+		await applyCustomizers(context);
 
-	if (installKind === 'updated') {
-		const action = await vscode.window.showInformationMessage(
-			ACTION_PROPERTIES.message,
-			ACTION_PROPERTIES.options.ok,
-			ACTION_PROPERTIES.options.cancel
-		);
-
-		if (action === ACTION_PROPERTIES.options.ok) {
-			const changelogPath = vscode.Uri.joinPath(context.extensionUri, 'webviews/changelog.html');
-			await showChangelog(changelogPath);
+		if (runtimeConfig.get<boolean>('showReleaseNotes')) {
+			await showReleaseNotes(context, true);
 		}
 	}
 
+	await rememberInstalledVersion(context);
+
+	// activate commands
+	activateCustomizers(context);
+	activateShowReleaseNotes('pascal.showReleaseNotes', context);
+
 	context.subscriptions.push(
-		vscode.workspace.onDidChangeConfiguration((event) => {
-			// change editor theme when the Pascal configuration changes
-			if (event.affectsConfiguration('pascal.editorTheme')) {
-				const workbench = vscode.workspace.getConfiguration('workbench');
-				const theme = getConfig<string>('editorTheme');
+		vscode.workspace.onDidChangeConfiguration(async (event) => {
+			if (affectsCustomizer(event)) {
+				await applyCustomizers(context);
 
-				if (!theme) return vscode.window.showErrorMessage('The selected theme is not valid.');
+				const msg =
+					'Pascal has detected a configuration change. Please reload the window to apply the changes.';
+				const acceptPrompt = 'Reload Window';
+				const dismissPrompt = 'Dismiss';
 
-				workbench.update('colorTheme', theme, true);
+				const result = await vscode.window.showInformationMessage(msg, acceptPrompt, dismissPrompt);
+
+				if (result === acceptPrompt) {
+					await vscode.commands.executeCommand('workbench.action.reloadWindow');
+				}
 			}
 		})
 	);
-}
-
-function getConfig<TReturnType>(path: string, scope?: vscode.ConfigurationScope) {
-	return vscode.workspace.getConfiguration('pascal', scope).get<TReturnType>(path);
 }

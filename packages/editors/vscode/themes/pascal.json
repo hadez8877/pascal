@@ -5,7 +5,11 @@
   "semanticHighlighting": true,
   "tokenColors": [
     {
-      "scope": ["comment", "punctuation.definition.comment", "string.comment"],
+      "scope": [
+        "comment",
+        "punctuation.definition.comment",
+        "string.comment"
+      ],
       "settings": {
         "foreground": "#5b5b5b"
       }
@@ -23,7 +27,10 @@
       }
     },
     {
-      "scope": ["entity", "entity.name"],
+      "scope": [
+        "entity",
+        "entity.name"
+      ],
       "settings": {
         "foreground": "#b392f0"
       }
@@ -47,13 +54,20 @@
       }
     },
     {
-      "scope": ["storage", "storage.type"],
+      "scope": [
+        "storage",
+        "storage.type"
+      ],
       "settings": {
         "foreground": "#f97583"
       }
     },
     {
-      "scope": ["storage.modifier.package", "storage.modifier.import", "storage.type.java"],
+      "scope": [
+        "storage.modifier.package",
+        "storage.modifier.import",
+        "storage.type.java"
+      ],
       "settings": {
         "foreground": "#e1e4e8"
       }
@@ -96,14 +110,14 @@
       "scope": "invalid.broken",
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#fdaeb7"
+        "foreground": "#f97583"
       }
     },
     {
       "scope": "invalid.deprecated",
       "settings": {
         "fontStyle": "italic",
-        "foreground": "#fdaeb7"
+        "foreground": "#f97583"
       }
     },
     {
@@ -142,7 +156,10 @@
       }
     },
     {
-      "scope": ["source.regexp", "string.regexp"],
+      "scope": [
+        "source.regexp",
+        "string.regexp"
+      ],
       "settings": {
         "foreground": "#dbedff"
       }
@@ -186,44 +203,60 @@
     {
       "scope": "punctuation.definition.list.begin.markdown",
       "settings": {
-        "foreground": "#ffab70"
+        "foreground": "#ffea7f"
       }
     },
     {
-      "scope": ["markup.heading", "markup.heading entity.name"],
+      "scope": [
+        "markup.heading",
+        "markup.heading entity.name"
+      ],
+      "settings": {
+        "foreground": "#79b8ff",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "scope": "markup.quote",
+      "settings": {
+        "foreground": "#5b5b5b"
+      }
+    },
+    {
+      "scope": [
+        "markup.italic",
+        "punctuation.definition.italic",
+        "todo.emphasis"
+      ],
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#b392f0"
+      }
+    },
+    {
+      "scope": [
+        "markup.bold",
+        "todo.bold"
+      ],
       "settings": {
         "fontStyle": "bold",
         "foreground": "#79b8ff"
       }
     },
     {
-      "scope": "markup.quote",
+      "scope": [
+        "markup.underline.link.markdown",
+        "markup.underline.link.image.markdown"
+      ],
       "settings": {
-        "foreground": "#85e89d"
-      }
-    },
-    {
-      "scope": "markup.italic",
-      "settings": {
-        "fontStyle": "italic",
-        "foreground": "#e1e4e8"
-      }
-    },
-    {
-      "scope": "markup.bold",
-      "settings": {
-        "fontStyle": "bold",
-        "foreground": "#e1e4e8"
-      }
-    },
-    {
-      "scope": ["markup.underline"],
-      "settings": {
+        "foreground": "#b392f0",
         "fontStyle": "underline"
       }
     },
     {
-      "scope": ["markup.strikethrough"],
+      "scope": [
+        "markup.strikethrough"
+      ],
       "settings": {
         "fontStyle": "strikethrough"
       }
@@ -235,28 +268,42 @@
       }
     },
     {
-      "scope": ["markup.deleted", "meta.diff.header.from-file", "punctuation.definition.deleted"],
+      "scope": [
+        "markup.deleted",
+        "meta.diff.header.from-file",
+        "punctuation.definition.deleted"
+      ],
       "settings": {
         "background": "#86181d",
         "foreground": "#fdaeb7"
       }
     },
     {
-      "scope": ["markup.inserted", "meta.diff.header.to-file", "punctuation.definition.inserted"],
+      "scope": [
+        "markup.inserted",
+        "meta.diff.header.to-file",
+        "punctuation.definition.inserted"
+      ],
       "settings": {
         "background": "#144620",
         "foreground": "#85e89d"
       }
     },
     {
-      "scope": ["markup.changed", "punctuation.definition.changed"],
+      "scope": [
+        "markup.changed",
+        "punctuation.definition.changed"
+      ],
       "settings": {
         "background": "#c24e00",
         "foreground": "#ffab70"
       }
     },
     {
-      "scope": ["markup.ignored", "markup.untracked"],
+      "scope": [
+        "markup.ignored",
+        "markup.untracked"
+      ],
       "settings": {
         "background": "#79b8ff",
         "foreground": "#2f363d"
@@ -308,10 +355,50 @@
       }
     },
     {
-      "scope": ["constant.other.reference.link", "string.other.link"],
+      "scope": [
+        "string.other.link.title.markdown",
+        "string.other.link.description.markdown"
+      ],
       "settings": {
-        "fontStyle": "underline",
-        "foreground": "#dbedff"
+        "foreground": "#ffab70"
+      }
+    },
+    {
+      "name": "customizer.boldStyle",
+      "scope": [
+        "entity.name.function",
+        "entity.name.section",
+        "entity.name.type.namespace",
+        "keyword.other.important",
+        "markup.bold",
+        "markup.bold.markdown",
+        "markup.heading",
+        "meta.require",
+        "support.function.any-method",
+        "todo.bold",
+        "variable.function"
+      ],
+      "settings": {
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "customizer.italicStyle",
+      "scope": [
+        "comment",
+        "comment.block.documentation",
+        "comment.line.double-slash",
+        "entity.other.attribute-name.js",
+        "entity.other.attribute-name.jsx",
+        "entity.other.attribute-name.ts",
+        "entity.other.attribute-name.tsx",
+        "markup.italic.markdown",
+        "punctuation.definition.comment",
+        "variable.language.super",
+        "variable.parameter"
+      ],
+      "settings": {
+        "fontStyle": "italic"
       }
     }
   ],
