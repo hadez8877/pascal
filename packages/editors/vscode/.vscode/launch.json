@@ -10,22 +10,18 @@
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
-        "--disable-extensions"
-      ],
-      "outFiles": ["${workspaceRoot}packages/editors/vscode/dist/**/*.js"]
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--disable-extensions"],
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "build:vscode"
     },
     {
       "name": "Launch Theme (web)",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": [
-        "--extensionDevelopmentPath=${workspaceRoot}/packages/editors/vscode",
-        "--extensionDevelopmentKind=web"
-      ],
-      "outFiles": ["${workspaceRoot}/packages/editors/vscode/dist/**/*.js"]
+      "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionDevelopmentKind=web"],
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "preLaunchTask": "build:vscode"
     }
   ]
 }
