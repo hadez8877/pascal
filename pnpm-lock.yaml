@@ -28,7 +28,7 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1(eslint@10.13.0)
       prettier:
-        specifier: ^3.9.5
+        specifier: ^3.9.10
         version: 3.9.10
       tinyglobby:
         specifier: 0.2.16
