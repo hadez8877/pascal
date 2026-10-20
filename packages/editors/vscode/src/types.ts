@@ -136,8 +136,8 @@ export interface ThemeDocument {
 }
 
 export interface ThemeData {
-	content: ThemeDocument
-	uriPath: vscode.Uri
+	content: ThemeDocument;
+	uriPath: vscode.Uri;
 }
 
 type Awaitable<T> = T | Promise<T>;
