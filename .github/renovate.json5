@@ -35,18 +35,32 @@
     },
     //#endregion
 
-    //#region Editor groups (no major-only)
+    //#region Editors (no major-only)
     {
       "groupName": "pascal-vscode",
       "matchManagers": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
       "matchFileNames": ["packages/editors/vscode/**"]
+    },
+
+    //#region Repo-level tooling
+    {
+      "groupName": "repo tooling",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchFileNames": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        "scripts/**"
+      ]
     }
   ],
   "ignoreDeps": [
     // manually bumping deps
     "@biomejs/biome",
     "@types/node",
+    // pnpm override key in pnpm-workspace.yaml, extracted as its own dep name
+    "@types/node@22",
     "@types/vscode",
 
     // manually bumping workflow actions
