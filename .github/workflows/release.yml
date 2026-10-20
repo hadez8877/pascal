@@ -47,18 +47,14 @@ jobs:
 
       - name: Create Release Pull Request or Publish
         id: changesets
-        uses: changesets/action@a45c4d594aa4e2c509dc14a9f2b3b67ba3780d0d # v1.9.0
+        uses: changesets/action@8488615a623b1b9c987934bb89eae8af6a946ac1 # v2.1.1
         with:
           # Note: pnpm install after versioning is necessary to refresh lockfile
-          version: pnpm run version
-          publish: pnpm exec changeset publish
-          commit: '[ci] release'
-          title: '[ci] release'
-        env:
-          # Needs access to push to main
-          GITHUB_TOKEN: ${{ steps.commiter.outputs.token }}
-          # Use OIDC for npm authentication instead of NPM_TOKEN
-          NPM_TOKEN: '' # https://github.com/changesets/changesets/issues/1152#issuecomment-3190884868
+          version-script: pnpm run version
+          publish-script: pnpm exec changeset publish
+          commit-message: '[ci] release'
+          pr-title: '[ci] release'
+          github-token: ${{ steps.commiter.outputs.token }}
 
       - name: Check if pascal-vscode was published
         id: vscode-published
