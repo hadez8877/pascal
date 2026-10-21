@@ -8,6 +8,17 @@ saveWorkspaceProtocol: false # This prevents the examples to have the `workspace
 autoInstallPeers: false
 dedupePeers: true
 
+overrides:
+  # If a dependency has a peer dependency on `@types/node` and the version range accepts `22`,
+  # we force it to resolve to `^22.19.0`. This helps reduce the number of duplicate packages
+  # in `node_modules/`.
+  '@types/node@22': '^22.19.0'
+
+# Wait until three days after release to install new versions of packages
+minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - '@biomejs/*'
+
 # Prevent installation of packages where trust level decreases
 trustPolicy: 'no-downgrade'
 trustPolicyExclude:
