@@ -136,20 +136,20 @@ This project follows the **Angular Commit Convention**. Every commit message mus
 
 **Allowed types:**
 
-| Type | When to use |
-| --- | --- |
-| `build` | Build system or dependency changes |
-| `chore` | Maintenance tasks |
-| `ci` | CI/CD configuration changes |
-| `docs` | Documentation changes only |
-| `feat` | A new feature |
-| `fix` | A bug fix |
-| `perf` | Performance improvement |
+| Type       | When to use                         |
+| ---------- | ----------------------------------- |
+| `build`    | Build system or dependency changes  |
+| `chore`    | Maintenance tasks                   |
+| `ci`       | CI/CD configuration changes         |
+| `docs`     | Documentation changes only          |
+| `feat`     | A new feature                       |
+| `fix`      | A bug fix                           |
+| `perf`     | Performance improvement             |
 | `refactor` | Code change without behavior change |
-| `revert` | Reverting a previous commit |
-| `style` | Formatting, no logic change |
-| `test` | Adding or updating tests |
-| `types` | Type definition changes |
+| `revert`   | Reverting a previous commit         |
+| `style`    | Formatting, no logic change         |
+| `test`     | Adding or updating tests            |
+| `types`    | Type definition changes             |
 
 **Rules:**
 
