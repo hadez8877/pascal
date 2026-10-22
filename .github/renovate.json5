@@ -35,12 +35,12 @@
     },
     //#endregion
 
-    //#region Editors (no major-only)
+    //#region Per-package groups (non-major only)
     {
-      "groupName": "pascal-vscode",
+      "groupName": "editors",
       "matchManagers": ["npm"],
       "matchUpdateTypes": ["minor", "patch"],
-      "matchFileNames": ["packages/editors/vscode/**"]
+      "matchFileNames": ["packages/editors/**"]
     },
 
     //#region Repo-level tooling
