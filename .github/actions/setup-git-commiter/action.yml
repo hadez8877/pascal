@@ -32,11 +32,10 @@ runs:
         permission-pull-requests: write
 
     - name: Configure git user
-      env:
-        APP_SLUG: ${{ steps.apptoken.outputs.app-slug }}
       run: |
-        git config --global user.name "${APP_SLUG}[bot]"
-        git config --global user.email "${APP_SLUG}[bot]@users.noreply.github.com"
+        slug="${{ steps.apptoken.outputs.app-slug }}"
+        git config --global user.name "${slug}[bot]"
+        git config --global user.email "${slug}[bot]@users.noreply.github.com"
       shell: bash
 
     - name: Clear checkout auth
