@@ -1,6 +1,6 @@
 # Contributor Manual
 
-Thank you for considering contributing to Pascal! We’re excited to have you here. This guide covers everything you need to know to get started, from setting up the project to submitting your first contribution. Every contribution, big or small, helps improve OpenCLI for everyone.
+Thank you for considering contributing to Pascal! We’re excited to have you here. This guide covers everything you need to know to get started, from setting up the project to submitting your first contribution. Every contribution, big or small, helps improve Pascal for everyone.
 
 > [!Tip]
 >
@@ -105,12 +105,23 @@ pnpm run format:imports  # Biome import organizer
 
 ### Branching Strategy
 
-Create a branch from `main` for every change:
+Pascal uses two long-lived branches:
+
+- `main` is the stable release line. By default, open pull requests against `main` for changes intended for a stable release.
+- `next` is the prerelease line. Use it for changes that need to be tested in beta releases before becoming part of a stable release. Pull requests intended for the prerelease line should target `next`.
+
+Create your working branch from the branch you intend to target:
 
 ```shell
+# Stable changes
+git checkout main
+git pull origin main
 git checkout -b feat/my-new-feature
-# or
-git checkout -b fix/bug-description
+
+# Prerelease changes
+git checkout next
+git pull origin next
+git checkout -b feat/my-beta-feature
 ```
 
 Use a descriptive, lowercase branch name. Prefer prefixes like `feat/`, `fix/`, `docs/`, `chore/`, etc.
@@ -159,6 +170,8 @@ git commit -m "test(cli): cover edge cases in argument parsing"
 
 This project uses [Changesets](https://github.com/changesets/changesets) to manage versioning and changelogs. **Every pull request that affects a publishable package must include a changeset.**
 
+The target branch determines the release line: changesets merged into `main` contribute to stable releases, while changesets merged into `next` contribute to beta prereleases.
+
 To add a changeset:
 
 ```shell
@@ -191,13 +204,9 @@ When you open the PR, fill out the pull request template. Screenshots are welcom
 
 ## Release Process
 
-Releases are handled by maintainers and are automated via the CI pipeline.
+Pascal uses Changesets to manage stable releases and beta prereleases.
 
-The flow is:
-
-1. Changesets accumulated in PRs are collected on `main`.
-2. A release PR is opened automatically that bumps versions and updates changelogs.
-3. Once the release PR is merged, packages are published to npm.
-4. A Discord announcement is sent to the community automatically.
+- On `main`, changesets are collected in an automated release pull request. Once that pull request is merged, stable package versions are published to npm.
+- On `next`, Changesets runs in prerelease mode and beta versions are used to test upcoming changes before they are included in a stable release.
 
 As a contributor, **you only need to add changesets** — the rest is handled by the maintainer team.
