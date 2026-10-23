@@ -1,0 +1,21 @@
+# See https://github.com/actions/labeler
+
+'actions':
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/workflows/**
+
+'area: editors':
+  - changed-files:
+      - any-glob-to-any-file:
+          - packages/editors/**
+
+'area: terminals':
+  - changed-files:
+      - any-glob-to-any-file:
+          - packages/terminals/**
+
+'pkg: vscode':
+  - changed-files:
+      - any-glob-to-any-file:
+        - packages/editors/vscode/**

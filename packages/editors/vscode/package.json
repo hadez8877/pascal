@@ -1,0 +1,106 @@
+{
+  "name": "pascal-vscode",
+  "displayName": "Pascal for Visual Studio Code",
+  "publisher": "hadez8877",
+  "description": "A modern theme for many editors, shells, and more!",
+  "version": "0.1.0",
+  "type": "commonjs",
+  "icon": "assets/icon.png",
+  "main": "dist/extension.js",
+  "browser": "dist/browser.js",
+  "galleryBanner": {
+    "color": "#121212",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hadez8877/pascal.git",
+    "directory": "packages/editors/vscode"
+  },
+  "scripts": {
+    "build": "tsc -b && node scripts/build.mjs -- --minify",
+    "dev": "node scripts/build.mjs -- --watch",
+    "lint": "biome lint . && eslint --cache --concurrency=auto ."
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/vscode": "^1.88.0",
+    "@vscode/vsce": "^4.0.0",
+    "esbuild": "0.27.3",
+    "eslint": "^10.13.0",
+    "eslint-plugin-regexp": "^3.3.1",
+    "kleur": "^4.1.5",
+    "ovsx": "^1.3.0",
+    "prettier": "^3.9.10",
+    "tinyglobby": "^0.2.17",
+    "turbo": "2.11.9",
+    "typescript": "^6.0.3"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "pascal",
+    "vsc-theme",
+    "theme",
+    "vscode"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Pascal (Default)",
+        "uiTheme": "vs-dark",
+        "path": "themes/pascal.json"
+      },
+      {
+        "label": "Pascal Solar",
+        "uiTheme": "vs",
+        "path": "themes/pascal-solar.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pascal.boldStyle",
+        "title": "Pascal: Toggle Bold Style"
+      },
+      {
+        "command": "pascal.italicStyle",
+        "title": "Pascal: Toggle Italic Style"
+      },
+      {
+        "command": "pascal.showReleaseNotes",
+        "title": "Pascal: Show Release Notes"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Pascal configuration",
+      "properties": {
+        "pascal.boldStyle.enabled": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show selected syntax scopes in bold. Only scopes the Pascal theme supports are affected."
+        },
+        "pascal.italicStyle.enabled": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show selected syntax scopes in italics. Only scopes the Pascal theme supports are affected."
+        },
+        "pascal.showReleaseNotes": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show release notes automatically when Pascal is updated."
+        }
+      }
+    }
+  },
+  "readme": "README.md",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.88.0"
+  }
+}

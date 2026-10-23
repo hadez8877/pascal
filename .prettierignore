@@ -1,0 +1,25 @@
+# Deep Directories
+**/dist
+**/node_modules
+**/.vscode-test
+
+# Directories
+.github
+.changeset
+
+# Files
+vitest.config.ts.timestamp*
+pnpm-lock.yaml
+
+# Formatted by Biome
+**/*.json
+**/*.jsonc
+**/*.js
+**/*.ts
+**/*.tsx
+**/*.jsx
+**/*.mjs
+**/*.cjs
+**/*.css
+
+CHANGELOG.md

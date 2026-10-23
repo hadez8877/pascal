@@ -1,0 +1,33 @@
+packages:
+  - 'packages/**/*'
+  - 'scripts'
+
+preferWorkspacePackages: true
+linkWorkspacePackages: true
+saveWorkspaceProtocol: false # This prevents the examples to have the `workspace:` prefix
+autoInstallPeers: false
+dedupePeers: true
+
+overrides:
+  # If a dependency has a peer dependency on `@types/node` and the version range accepts `22`,
+  # we force it to resolve to `^22.19.0`. This helps reduce the number of duplicate packages
+  # in `node_modules/`.
+  '@types/node@22': '^22.19.0'
+
+# Wait until three days after release to install new versions of packages
+minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - '@biomejs/*'
+
+# Prevent installation of packages where trust level decreases
+trustPolicy: 'no-downgrade'
+trustPolicyExclude:
+  # Outdated dependencies of @vscode/vsce
+  - 'semver@6.3.1 || 5.7.2'
+
+# Control whether packages can run postinstall scripts. I disallow this to avoid the security risk
+# of running third-party code on install.
+allowBuilds:
+  '@vscode/vsce-sign': false
+  esbuild: false
+  keytar: false

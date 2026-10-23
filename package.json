@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "root",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hadez8877/pascal.git"
+  },
+  "scripts": {
+    "release": "pnpm run build && changeset publish",
+    "build": "turbo run build --concurrency=4",
+    "build:ci": "turbo run build:ci --concurrency=4",
+    "build:affected": "turbo run build --filter=...[origin/main] --concurrency=4",
+    "test": "turbo run test --concurrency=4",
+    "test:affected": "turbo run test --filter=...[origin/main] --concurrency=4",
+    "typecheck": "tsc -b",
+    "lint": "turbo run lint --concurrency=4",
+    "lint:affected": "turbo run lint --filter=...[origin/main] --concurrency=4",
+    "format": "pnpm run format:code && pnpm run format:imports",
+    "format:code": "biome format --write && prettier -w \"**/*\" --ignore-unknown --cache",
+    "format:imports": "biome check --formatter-enabled=false --write",
+    "update": "pnpm --recursive update --interactive",
+    "update:latest": "pnpm --recursive update --interactive --latest",
+    "version": "changeset version && node ./scripts/editors/sync-vscode-changelog.js && pnpm install --no-frozen-lockfile && pnpm run format",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "workspaces": [
+    "packages/*",
+    "packages/editors/*",
+    "scripts"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "2.4.15",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@types/node": "^24.10.1",
+    "eslint": "^10.13.0",
+    "eslint-plugin-regexp": "^3.3.1",
+    "prettier": "^3.9.10",
+    "tinyglobby": "0.2.17",
+    "turbo": "^2.11.9",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.5"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.28.6"
+}
