@@ -32,6 +32,10 @@
     "version": "changeset version && node ./scripts/editors/update-vscode-changelog.js && pnpm install --no-frozen-lockfile && pnpm run format",
     "preinstall": "npx only-allow pnpm"
   },
+  "workspaces": [
+    "packages/**/*",
+    "scripts"
+  ],
   "devDependencies": {
     "@biomejs/biome": "2.4.15",
     "@changesets/changelog-github": "^1.0.1",
