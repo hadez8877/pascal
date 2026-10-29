@@ -24,6 +24,9 @@ trustPolicy: 'no-downgrade'
 trustPolicyExclude:
   # Outdated dependencies of @vscode/vsce
   - 'semver@6.3.1 || 5.7.2'
+  # Old dependency of @types/node@22
+  # TODO: Remove when dropping support for Node 22
+  - undici-types@6.21.0
 
 # Control whether packages can run postinstall scripts. I disallow this to avoid the security risk
 # of running third-party code on install.

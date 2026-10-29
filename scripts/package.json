@@ -8,23 +8,6 @@
   "bin": {
     "pascal-scripts": "./index.js"
   },
-  "//a": "MOST PACKAGES SHOULD GO IN DEV_DEPENDENCIES! THEY WILL BE BUNDLED.",
-  "//b": "DEPENDENCIES IS FOR UNBUNDLED PACKAGES",
-  "author": "Fabricio Pasapera Viera (@Hadez)",
-  "license": "MIT",
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hadez8877/pascal.git",
-    "directory": "scripts"
-  },
-  "bugs": {
-    "url": "https://github.com/hadez8877/pascal/issues"
-  },
-  "funding": "https://github.com/hadez8877/pascal?sponsor",
-  "devDependencies": {
-    "turbo": "^2.11.9"
-  },
   "dependencies": {
     "esbuild": "^0.27.3",
     "marked": "^18.1.1",
