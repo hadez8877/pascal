@@ -1,5 +1,5 @@
 /** @type {import("prettier").Config} */
-const baseConfig = {
+export default {
 	printWidth: 100,
 	semi: true,
 	singleQuote: true,
@@ -15,5 +15,3 @@ const baseConfig = {
 		}
 	]
 };
-
-export default baseConfig;
