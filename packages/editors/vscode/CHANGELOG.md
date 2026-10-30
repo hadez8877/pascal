@@ -1,5 +1,19 @@
 # pascal-vscode
 
+## 0.2.0
+
+### Minor Changes
+
+- [`991c87f`](https://github.com/hadez8877/pascal/commit/991c87f7fcc0c4af3278fd8d2bc68bcc7ce23ea5) Thanks [@hadez8877](https://github.com/hadez8877)! - Adds the **Pascal > Bold Style: Scopes** and **Pascal > Italic Style: Scopes** settings to choose which TextMate scopes show up in bold or italics
+  
+  Previously the scope lists for the bold and italic toggles were fixed. Now each toggle has its own editable scope list, available in the extension settings. Providing your own list replaces the default.
+  
+  The toggles watch for changes to these lists, so edits apply the next time the customizers run.
+
+- [`1e82a87`](https://github.com/hadez8877/pascal/commit/1e82a87fb8702f9ea5321966cf719bc6a79ab45f) Thanks [@hadez8877](https://github.com/hadez8877)! - Removes the release notes experience: the **Pascal: Show Release Notes** command, the in-extension changelog view, and the **Pascal > Show Release Notes** setting
+  
+  After an update, the extension no longer opens a release notes panel. To see what changed in a new version, check the package's [`CHANGELOG.md`](./CHANGELOG.md) on GitHub instead.
+
 ## 0.1.0
 
 ### Minor Changes
