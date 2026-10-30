@@ -33,7 +33,12 @@ Begin with a **present tense verb** that completes the sentence "This PR ...":
 
 - Adds, Removes, Fixes, Updates, Refactors, Improves, Deprecates
 
-Describe the change **as someone with Pascal installed in their editor will experience it**, not how it was implemented internally:
+Describe the change **as someone with Pascal installed in their editor will experience it**, not how it was implemented internally.
+
+Never reference Visual Studio Code commands or Pascal settings by their ID, including inside code samples. Use the names users see:
+
+- Commands: only the visible title (bold), e.g. **Pascal: Show Release Notes** — never `pascal.showReleaseNotes`
+- Settings: the full label from the Settings UI (bold), e.g. **Pascal > Bold Style: Enabled** — never `pascal.boldStyle.enabled`
 
 ```md
 // Too implementation-focused
@@ -84,13 +89,7 @@ Start with "Adds", name the new variant, token, or capability, and describe what
 
 Adds a new `Pascal Solar` theme variant
 
-Select it from the Command Palette via **Color Theme → Pascal Solar**, or set it directly:
-
-```json
-{
-  "workbench.colorTheme": "Pascal Solar"
-}
-```
+Select it from the Command Palette via **Color Theme → Pascal Solar**!
 ````
 
 New features are an opportunity to write a richer description that can feed into release notes. Keep the entry focused on the behavior Pascal users gain.
@@ -105,15 +104,6 @@ Use verbs like "Removes", "Changes", or "Deprecates". Must include migration gui
 ---
 
 Removes the deprecated `Pascal Classic` variant in favor of `Pascal (Default)`
-
-Update your `settings.json`:
-
-```diff
-{
-- "workbench.colorTheme": "Pascal Classic",
-+ "workbench.colorTheme": "Pascal (Default)",
-}
-```
 ````
 
 Changes to default colors, fonts, or variant names must mention the old value, the new value, and how to restore previous behavior.
