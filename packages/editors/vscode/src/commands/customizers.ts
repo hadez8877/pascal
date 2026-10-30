@@ -1,52 +1,13 @@
 import * as vscode from 'vscode';
-import type { Customizer } from '../types.js';
+import { CUSTOMIZER_PREFIX, availableCustomizers } from '../utils/availableCustomizers.js';
 import { getThemes } from '../utils.js';
 
-export const CUSTOMIZERS = [
-	{
-		id: 'boldStyle',
-		fontStyle: 'bold',
-		scopes: [
-			'entity.name.function',
-			'entity.name.section',
-			'entity.name.type.namespace',
-			'keyword.other.important',
-			'markup.bold',
-			'markup.bold.markdown',
-			'markup.heading',
-			'meta.require',
-			'support.function.any-method',
-			'todo.bold',
-			'variable.function'
-		]
-	},
-	{
-		id: 'italicStyle',
-		fontStyle: 'italic',
-		scopes: [
-			'comment',
-			'comment.block.documentation',
-			'comment.line.double-slash',
-			'entity.other.attribute-name.js',
-			'entity.other.attribute-name.jsx',
-			'entity.other.attribute-name.ts',
-			'entity.other.attribute-name.tsx',
-			'markup.italic.markdown',
-			'punctuation.definition.comment',
-			'variable.language.super',
-			'variable.parameter'
-		]
-	}
-] satisfies Customizer[];
-
-const CUSTOMIZER_TOKEN_PREFIX = 'customizer.';
-
 export function activate(context: vscode.ExtensionContext) {
-	for (const { id } of CUSTOMIZERS) {
-		const configId = `${id}.enabled`;
+	for (const { name } of availableCustomizers) {
+		const configId = `${name}.enabled`;
 
 		context.subscriptions.push(
-			vscode.commands.registerCommand(`pascal.${id}`, async () => {
+			vscode.commands.registerCommand(`pascal.${name}`, async () => {
 				const runtimeConfig = vscode.workspace.getConfiguration('pascal');
 				const newValue = runtimeConfig.get<boolean>(configId) === false;
 
@@ -59,43 +20,48 @@ export function activate(context: vscode.ExtensionContext) {
 /**
  * Rewrites each theme file so it holds a token only for the enabled customizers.
  *
- * The tokens go last so their `fontStyle` wins over earlier rules for the same scope. They carry
+ * The customizer tokens are filtered out once and then each enabled `run` appends its own, so
+ * they go last and their settings win over earlier rules for the same scope. The tokens carry
  * no `foreground`, which VS Code resolves separately, so the theme colors stay untouched.
  */
 export async function applyCustomizers(context: vscode.ExtensionContext) {
 	const runtimeConfig = vscode.workspace.getConfiguration('pascal');
-	const isEnabled = CUSTOMIZERS.filter(
-		({ id }) => runtimeConfig.get<boolean>(`${id}.enabled`) === true
+	const enabledCustomizers = availableCustomizers.filter(
+		({ name }) => runtimeConfig.get<boolean>(`${name}.enabled`) === true
 	);
 
 	const themes = await getThemes(context);
 
+	// Snapshot before mutating, so calling this again with the same config must not touch the
+	// files.
+	const beforeContents = themes.map((theme) => JSON.stringify(theme.content));
+
 	for (const theme of themes) {
-		const beforeContent = JSON.stringify(theme.content);
-
-		theme.content.tokenColors = [
-			...(theme.content.tokenColors ?? []).filter(
-				(rule) => !rule.name?.startsWith(CUSTOMIZER_TOKEN_PREFIX)
-			),
-			...isEnabled.map(({ id, fontStyle, scopes }) => ({
-				name: CUSTOMIZER_TOKEN_PREFIX + id,
-				scope: scopes,
-				settings: { fontStyle }
-			}))
-		];
-
-		// Calling this again with the same config must not touch the files.
-		if (JSON.stringify(theme.content) === beforeContent) continue;
-
-		await vscode.workspace.fs.writeFile(
-			theme.uriPath,
-			new TextEncoder().encode(JSON.stringify(theme.content, null, 2))
+		theme.content.tokenColors = (theme.content.tokenColors ?? []).filter(
+			(rule) => !rule.name?.startsWith(CUSTOMIZER_PREFIX)
 		);
 	}
+
+	for (const { name, run } of enabledCustomizers) {
+		run(themes, name);
+	}
+
+	await Promise.all(
+		themes.map(async (theme, index) => {
+			if (JSON.stringify(theme.content) === beforeContents[index]) return;
+
+			await vscode.workspace.fs.writeFile(
+				theme.uriPath,
+				new TextEncoder().encode(JSON.stringify(theme.content, null, 2))
+			);
+		})
+	);
 }
 
 export function affectsCustomizer(event: vscode.ConfigurationChangeEvent) {
-	return CUSTOMIZERS.some((customizer) =>
-		event.affectsConfiguration(`pascal.${customizer.id}.enabled`)
+	return availableCustomizers.some(
+		(customizer) =>
+			event.affectsConfiguration(`pascal.${customizer.name}.enabled`) ||
+			event.affectsConfiguration(`pascal.${customizer.name}.scopes`)
 	);
 }

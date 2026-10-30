@@ -313,44 +313,6 @@
       "settings": {
         "foreground": "#bc4a00"
       }
-    },
-    {
-      "name": "customizer.boldStyle",
-      "scope": [
-        "entity.name.function",
-        "entity.name.section",
-        "entity.name.type.namespace",
-        "keyword.other.important",
-        "markup.bold",
-        "markup.bold.markdown",
-        "markup.heading",
-        "meta.require",
-        "support.function.any-method",
-        "todo.bold",
-        "variable.function"
-      ],
-      "settings": {
-        "fontStyle": "bold"
-      }
-    },
-    {
-      "name": "customizer.italicStyle",
-      "scope": [
-        "comment",
-        "comment.block.documentation",
-        "comment.line.double-slash",
-        "entity.other.attribute-name.js",
-        "entity.other.attribute-name.jsx",
-        "entity.other.attribute-name.ts",
-        "entity.other.attribute-name.tsx",
-        "markup.italic.markdown",
-        "punctuation.definition.comment",
-        "variable.language.super",
-        "variable.parameter"
-      ],
-      "settings": {
-        "fontStyle": "italic"
-      }
     }
   ],
   "colors": {
