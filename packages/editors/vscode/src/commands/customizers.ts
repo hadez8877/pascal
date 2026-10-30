@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { CUSTOMIZER_PREFIX, availableCustomizers } from '../utils/availableCustomizers.js';
+import { availableCustomizers, CUSTOMIZER_PREFIX } from '../utils/availableCustomizers.js';
 import { getThemes } from '../utils.js';
 
 export function activate(context: vscode.ExtensionContext) {

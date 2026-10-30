@@ -82,7 +82,7 @@ Improves syntax highlighting for Markdown code fences in the Pascal Dark variant
 
 Start with "Adds", name the new variant, token, or capability, and describe what users can now do. Include a settings/code example when helpful:
 
-````md
+```md
 ---
 'pascal-vscode': minor
 ---
@@ -90,7 +90,7 @@ Start with "Adds", name the new variant, token, or capability, and describe what
 Adds a new `Pascal Solar` theme variant
 
 Select it from the Command Palette via **Color Theme → Pascal Solar**!
-````
+```
 
 New features are an opportunity to write a richer description that can feed into release notes. Keep the entry focused on the behavior Pascal users gain.
 
@@ -98,13 +98,13 @@ New features are an opportunity to write a richer description that can feed into
 
 Use verbs like "Removes", "Changes", or "Deprecates". Must include migration guidance. Use diff code samples when appropriate:
 
-````md
+```md
 ---
 'pascal-vscode': major
 ---
 
 Removes the deprecated `Pascal Classic` variant in favor of `Pascal (Default)`
-````
+```
 
 Changes to default colors, fonts, or variant names must mention the old value, the new value, and how to restore previous behavior.
 
