@@ -42,14 +42,6 @@ pascal-scripts dev "src/**/*.ts" --bundle --no-clean-dist
 
 ## Repo scripts
 
-### [`editors/update-vscode-changelog.js`](./editors/update-vscode-changelog.js)
-
-Renders `packages/editors/vscode/CHANGELOG.md` to `packages/editors/vscode/webviews/changelog.html` with marked. The VS Code extension ships that prebuilt HTML in its changelog webview, so the file has to be regenerated whenever the changelog changes. The root `version` script runs it right after changesets writes the new versions, or you can regenerate it manually from the repo root:
-
-```shell
-node ./scripts/editors/update-vscode-changelog.js
-```
-
 ### [`turbo-run-affected.js`](./turbo-run-affected.js)
 
 Runs `pnpm exec turbo run` with the arguments you pass through. When CI invokes it for a `pull_request` event, it appends the `[origin/<base>...HEAD]` range to every `--filter`, so Turbo only selects packages touched by the PR. Exclusion filters (the ones starting with `!`) pass through unchanged, keeping them scoped to the whole repo instead of just the changed range. On pushes and local runs, the arguments reach Turbo untouched.
