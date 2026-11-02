@@ -34,7 +34,3 @@ export async function getThemes(context: vscode.ExtensionContext): Promise<Theme
 			})
 	);
 }
-
-export function escapeRegExp(str: string) {
-	return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}

@@ -3,9 +3,9 @@
   "displayName": "Pascal for Visual Studio Code",
   "publisher": "hadez8877",
   "description": "A modern theme for many editors, shells, and more!",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "commonjs",
-  "icon": "assets/icon.png",
+  "icon": "icon.png",
   "main": "dist/extension.js",
   "browser": "dist/browser.js",
   "galleryBanner": {
@@ -19,22 +19,15 @@
   },
   "scripts": {
     "build": "tsc -b && node scripts/build.mjs -- --minify",
-    "dev": "node scripts/build.mjs -- --watch",
-    "lint": "biome lint . && eslint --cache --concurrency=auto ."
+    "dev": "node scripts/build.mjs -- --watch"
   },
   "devDependencies": {
-    "@types/node": "^24.10.1",
+    "@types/node": "^22.10.6",
     "@types/vscode": "^1.88.0",
-    "@vscode/vsce": "^3.9.2",
+    "@vscode/vsce": "^4.0.0",
     "esbuild": "0.27.3",
-    "eslint": "^10.13.0",
-    "eslint-plugin-regexp": "^3.3.1",
     "kleur": "^4.1.5",
-    "ovsx": "^0.10.12",
-    "prettier": "^3.9.10",
-    "tinyglobby": "^0.2.17",
-    "turbo": "2.11.9",
-    "typescript": "^6.0.3"
+    "ovsx": "^1.3.0"
   },
   "categories": [
     "Themes"
@@ -69,10 +62,6 @@
       {
         "command": "pascal.italicStyle",
         "title": "Pascal: Toggle Italic Style"
-      },
-      {
-        "command": "pascal.showReleaseNotes",
-        "title": "Pascal: Show Release Notes"
       }
     ],
     "configuration": {
@@ -84,16 +73,50 @@
           "default": false,
           "markdownDescription": "Show selected syntax scopes in bold. Only scopes the Pascal theme supports are affected."
         },
+        "pascal.boldStyle.scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "entity.name.function",
+            "entity.name.section",
+            "entity.name.type.namespace",
+            "keyword.other.important",
+            "markup.bold",
+            "markup.bold.markdown",
+            "markup.heading",
+            "meta.require",
+            "support.function.any-method",
+            "todo.bold",
+            "variable.function"
+          ],
+          "markdownDescription": "TextMate scopes shown in bold when `#pascal.boldStyle.enabled#` is enabled. Editing this list replaces the default."
+        },
         "pascal.italicStyle.enabled": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Show selected syntax scopes in italics. Only scopes the Pascal theme supports are affected."
         },
-        "pascal.showReleaseNotes": {
-          "scope": "window",
-          "type": "boolean",
-          "default": true,
-          "markdownDescription": "Show release notes automatically when Pascal is updated."
+        "pascal.italicStyle.scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "comment",
+            "comment.block.documentation",
+            "comment.line.double-slash",
+            "entity.other.attribute-name.js",
+            "entity.other.attribute-name.jsx",
+            "entity.other.attribute-name.ts",
+            "entity.other.attribute-name.tsx",
+            "markup.italic.markdown",
+            "punctuation.definition.comment",
+            "variable.language.super",
+            "variable.parameter"
+          ],
+          "markdownDescription": "TextMate scopes shown in italics when `#pascal.italicStyle.enabled#` is enabled. Editing this list replaces the default."
         }
       }
     }
