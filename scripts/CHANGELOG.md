@@ -1,5 +1,13 @@
 # pascal-scripts
 
+## 1.0.1
+
+### Patch Changes
+
+- [`ccc39cc`](https://github.com/hadez8877/pascal/commit/ccc39cc45b16ad9e11a96a131c0ea3dec5dbd5a4) Thanks [@hadez8877](https://github.com/hadez8877)! - Removes the `update-vscode-changelog` script now that the extension no longer renders release notes
+
+- [`4270d26`](https://github.com/hadez8877/pascal/commit/4270d262ed60db4d01cc9aaf22dc55e6ce438f6e) Thanks [@hadez8877](https://github.com/hadez8877)! - Adds `turbo-run-affected`, which scopes Turbo `--filter` args to the PR base branch so CI only builds and tests affected packages
+
 ## 1.0.0
 
 ### Major Changes

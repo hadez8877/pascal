@@ -107,15 +107,12 @@ export type TextMateScope =
 export type FontStyle = 'bold' | 'italic' | 'underline' | 'strikethrough';
 
 export interface Customizer {
-	id: string;
+	name: string;
 	/**
-	 * TextMate `fontStyle` token applied when this customizer is enabled.
+	 * Applies this customizer to every theme by mutating `theme.content`. The `name` identifies
+	 * this customizer in `theme.content`, as `customizer.<name>`.
 	 */
-	fontStyle: FontStyle;
-	/**
-	 * TextMate scope selectors used to find tokens to customize.
-	 */
-	scopes: TextMateScope[];
+	run(themes: ThemeData[], name: string): void;
 }
 
 /** Token rule in a VS Code color-theme JSON file. */
@@ -138,73 +135,4 @@ export interface ThemeDocument {
 export interface ThemeData {
 	content: ThemeDocument;
 	uriPath: vscode.Uri;
-}
-
-type Awaitable<T> = T | Promise<T>;
-
-export interface WebviewPanelConfig {
-	/**
-	 * Column where the panel is initially shown.
-	 *
-	 * @default `vscode.ViewColumn.Active`
-	 */
-	readonly viewColumn?: vscode.ViewColumn;
-
-	/**
-	 * The panel should open without taking focus.
-	 */
-	readonly preserveFocus?: boolean;
-	/**
-	 * JavaScript is enabled inside the webview.
-	 */
-	readonly enableScripts?: boolean;
-	/**
-	 * Forms are enabled inside the webview.
-	 */
-	readonly enableForms?: boolean;
-	/**
-	 * The webview find widget is enabled.
-	 */
-	readonly enableFindWidget?: boolean;
-	/**
-	 * The webview keeps its context while hidden.
-	 */
-	readonly retainContextWhenHidden?: boolean;
-	/**
-	 * Additional local resource roots allowed by the webview.
-	 * The extension `assets` directory is always included.
-	 */
-	readonly localResourceRoots?: readonly vscode.Uri[];
-
-	/**
-	 * Custom title. Falls back to a title derived from the panel id.
-	 */
-	readonly title?: string;
-	/**
-	 * Custom icon shown by the editor.
-	 */
-	readonly iconPath?: vscode.Uri;
-}
-
-export interface WebviewPanelContext {
-	readonly id: string;
-	readonly panel: vscode.WebviewPanel;
-	readonly webview: vscode.Webview;
-	readonly extensionUri: vscode.Uri;
-	readonly iconUri: vscode.Uri;
-	readonly nonce: string;
-}
-
-export interface WebviewPanelOptions {
-	/** HTML content rendered inside the webview document. */
-	readonly contentHTML: string | ((context: WebviewPanelContext) => Awaitable<string>);
-	readonly config?: WebviewPanelConfig;
-
-	/** Called before the webview document is loaded. */
-	readonly beforeLoad?: (context: WebviewPanelContext) => Awaitable<void>;
-	/** Called after the webview document finishes loading. */
-	readonly afterLoad?: (context: WebviewPanelContext) => Awaitable<void>;
-
-	/** Called for messages sent from the webview. */
-	readonly onMessage?: (message: unknown, context: WebviewPanelContext) => Awaitable<void>;
 }
