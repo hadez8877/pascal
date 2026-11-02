@@ -1,6 +1,6 @@
 {
   "name": "pascal-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of scripts that we use for our workflows",
   "private": true,
   "type": "module",
