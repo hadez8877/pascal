@@ -42,17 +42,17 @@
     "@changesets/cli": "^3.0.3",
     "@types/node": "^22.10.6",
     "eslint": "^10.13.0",
-    "eslint-plugin-regexp": "^3.3.1",
+    "eslint-plugin-regexp": "^3.3.2",
     "prettier": "^3.9.10",
     "tinyglobby": "0.2.17",
-    "turbo": "^2.11.7",
+    "turbo": "^2.11.10",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.71.2",
+    "typescript-eslint": "^8.72.1",
     "vitest": "^5.0.5"
   },
   "license": "MIT",
   "engines": {
     "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@11.28.6"
+  "packageManager": "pnpm@11.28.9"
 }
