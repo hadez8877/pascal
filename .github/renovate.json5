@@ -1,0 +1,74 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    "schedule:weekly",
+    ":disablePeerDependencies",
+    ":disableDependencyDashboard",
+    "customManagers:biomeVersions",
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "postUpdateOptions": ["pnpmDedupe"],
+  "toolSettings": {
+    "nodeMaxMemory": 3072
+  },
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "ignorePaths": ["**/node_modules/**"],
+  "packageRules": [
+    //#region Infra groups
+    {
+      "groupName": "lockfile maintenance",
+      "matchUpdateTypes": ["lockFileMaintenance"]
+    },
+    {
+      "groupName": "github-actions",
+      "matchManagers": ["github-actions"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    //#endregion
+
+    //#region Per-package groups (non-major only)
+    {
+      "groupName": "editors",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchFileNames": ["packages/editors/**"]
+    },
+
+    //#region Repo-level tooling
+    {
+      "groupName": "repo tooling",
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchFileNames": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        "scripts/**"
+      ]
+    }
+  ],
+  "ignoreDeps": [
+    // manually bumping deps
+    "@biomejs/biome",
+    "@types/node",
+    // pnpm override key in pnpm-workspace.yaml, extracted as its own dep name
+    "@types/node@22",
+    "@types/vscode",
+
+    // manually bumping workflow actions
+    "actions/labeler",
+    "github/issue-labeler",
+
+    // follow vite deps version
+    "esbuild"
+  ],
+  "minimumReleaseAge": "3 days"
+}
