@@ -41,18 +41,18 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@types/node": "^22.10.6",
-    "eslint": "^10.13.0",
-    "eslint-plugin-regexp": "^3.3.1",
-    "prettier": "^3.9.10",
+    "eslint": "^10.15.0",
+    "eslint-plugin-regexp": "^3.3.3",
+    "prettier": "^3.10.1",
     "tinyglobby": "0.2.17",
-    "turbo": "^2.11.7",
+    "turbo": "^2.11.13",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.71.2",
-    "vitest": "^5.0.5"
+    "typescript-eslint": "^8.74.0",
+    "vitest": "^5.1.1"
   },
   "license": "MIT",
   "engines": {
     "node": ">=22.12.0"
   },
-  "packageManager": "pnpm@11.28.6"
+  "packageManager": "pnpm@11.29.0"
 }
